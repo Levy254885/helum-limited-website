@@ -12,20 +12,27 @@ Highly animated Next.js 15 website with 18+ pages, Framer Motion, SEO, and conte
 3. Vision & Mission
 4. Values
 5. Services (overview)
-6–9. Service detail pages (Renewable, Energy Tech, Productive-Use, Partnerships)
+6. Renewable Energy Solutions
+7. Energy & Power Technology
+8. Productive-Use Technology
+9. Strategic Technology Partnerships (service detail)
 10. Why Helum
 11. Solutions
 12. Who We Serve
 13. Process (interactive steps)
 14. Partnerships
 15. Opportunity / Investment
-16. Contact
+16. Contact (+ working form)
 17. Privacy
 18. Terms
 
 ## Stack
 
-- Next.js 15 · React 19 · TypeScript · Tailwind CSS v4 · Framer Motion
+- Next.js 15 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- Framer Motion (scroll, stagger, page transitions, hero parallax, hover)
+- `prefers-reduced-motion` respected
 
 ## Run
 
@@ -34,6 +41,14 @@ npm install
 npm run dev
 ```
 
-## Content
+## Deploy
 
-All copy from Helum Limited Company Profile (September 2026) and letterhead. No invented stats or partners.
+```bash
+npx vercel
+```
+
+Connect this repo to Vercel for continuous deployment.
+
+## Content source
+
+All company copy is taken from the Helum Limited Company Profile (September 2026) and letterhead. No invented statistics, partners, or certifications.

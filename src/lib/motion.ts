@@ -22,10 +22,27 @@ export const scaleIn: Variants = {
   visible: { opacity: 1, scale: 1, transition: easeOut },
 };
 
+export const slideLeft: Variants = {
+  hidden: { opacity: 0, x: -48 },
+  visible: { opacity: 1, x: 0, transition: easeOut },
+};
+
+export const slideRight: Variants = {
+  hidden: { opacity: 0, x: 48 },
+  visible: { opacity: 1, x: 0, transition: easeOut },
+};
+
 export const staggerContainer: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.1, delayChildren: 0.08 },
+  },
+};
+
+export const staggerFast: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
   },
 };
 

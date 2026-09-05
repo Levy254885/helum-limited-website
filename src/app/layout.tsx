@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://helumlimited.com"),
@@ -16,13 +14,6 @@ export const metadata: Metadata = {
   },
   description:
     "Helum Limited delivers practical technology and renewable energy solutions designed to improve energy access, reliability, productivity and business efficiency across Africa.",
-  keywords: [
-    "renewable energy Kenya",
-    "solar power systems",
-    "battery energy storage",
-    "Helum Limited",
-    "technology energy Africa",
-  ],
   openGraph: {
     type: "website",
     locale: "en_KE",
@@ -30,21 +21,20 @@ export const metadata: Metadata = {
     siteName: "Helum Limited",
     title: "HELUM LIMITED | Technology, Energy & Renewable Energy Solutions",
     description:
-      "Helum Limited delivers practical technology and renewable energy solutions designed to improve energy access, reliability, productivity and business efficiency across Africa.",
+      "Practical technology and renewable energy solutions for Africa. Engineering the Intelligence of Energy.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200",
         width: 1200,
         height: 630,
-        alt: "Helum Limited solar infrastructure",
+        alt: "Helum Limited",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "HELUM LIMITED | Technology, Energy & Renewable Energy Solutions",
-    description:
-      "Practical technology and renewable energy solutions for Africa.",
+    description: "Practical technology and renewable energy solutions for Africa.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://helumlimited.com" },
@@ -56,7 +46,7 @@ const jsonLd = {
   name: "Helum Limited",
   url: "https://helumlimited.com",
   description:
-    "Kenyan technology and renewable-energy company delivering practical solutions for energy and productivity challenges.",
+    "Kenyan technology and renewable-energy company focused on developing, sourcing and delivering innovative solutions that address real-world energy and productivity challenges.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Darosa Plaza, Karen Road",
@@ -73,9 +63,7 @@ const jsonLd = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -84,7 +72,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -52,7 +52,6 @@ export const images = {
     src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
     alt: "Professional workspace",
   },
-  // Aliases used by the current homepage (Vercel typecheck)
   serviceRenewable: {
     src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=900&q=80",
     alt: "Solar PV system installation",
