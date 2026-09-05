@@ -1,59 +1,39 @@
-# HELUM LIMITED — Official Website
+# HELUM LIMITED — Animated Multi-Page Website
 
-**Technology. Energy. Possibility.**
+**Technology. Energy. Possibility.**  
+**Engineering the Intelligence of Energy**
 
-Production-ready Next.js website for Helum Limited — a Kenyan technology and renewable-energy company.
+Highly animated Next.js 15 website with 18+ pages, Framer Motion, SEO, and content from the official company profile & letterhead.
+
+## Pages
+
+1. Home (animated hero, parallax, floating orbs, staggered sections)
+2. About
+3. Vision & Mission
+4. Values
+5. Services (overview)
+6–9. Service detail pages (Renewable, Energy Tech, Productive-Use, Partnerships)
+10. Why Helum
+11. Solutions
+12. Who We Serve
+13. Process (interactive steps)
+14. Partnerships
+15. Opportunity / Investment
+16. Contact
+17. Privacy
+18. Terms
 
 ## Stack
 
-- **Next.js 15** (App Router)
-- **React 19**
-- **TypeScript**
-- **Tailwind CSS v4**
-- Fully responsive, SEO-optimized, accessible
+- Next.js 15 · React 19 · TypeScript · Tailwind CSS v4 · Framer Motion
 
-## Features
-
-- Sticky header with scroll transition & mobile hamburger menu
-- Full-bleed hero with primary/secondary CTAs
-- About, Services, Solutions, Why Helum, Values, Process, Markets, Partnerships
-- Interactive process steps (desktop) + mobile cards
-- Working contact form (frontend success state; ready for API)
-- Schema.org Organization structured data
-- Open Graph & Twitter metadata
-- Centralized image config (`src/lib/images.ts`) for easy Cloudinary swap
-- `prefers-reduced-motion` support
-
-## Getting Started
+## Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Content
 
-## Build & Deploy
-
-```bash
-npm run build
-npm start
-```
-
-Deploy easily on **Vercel**:
-
-```bash
-npx vercel
-```
-
-Or connect the GitHub repo to Vercel for continuous deployment.
-
-## Contact (company)
-
-- Phone: 0710125685
-- Email: helumlimited@gmail.com
-- Address: P.O. Box 1017-00502, Darosa Plaza, Karen Road, Nairobi, Kenya
-
-## License
-
-© 2026 HELUM LIMITED. All rights reserved.
+All copy from Helum Limited Company Profile (September 2026) and letterhead. No invented stats or partners.
