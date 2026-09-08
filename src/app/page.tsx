@@ -6,6 +6,8 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 import { useRef } from "react";
 import { images } from "@/lib/images";
 import { about, company, services, values, vision, mission, whyHelum, investment } from "@/lib/content";
+import { productCategories } from "@/lib/products";
+import { partners } from "@/lib/partners";
 import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { heroItem, heroTitle, staggerContainer } from "@/lib/motion";
 
@@ -257,6 +259,72 @@ export default function HomePage() {
             >
               View all services
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Products — SVC-style category tiles */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
+          <div className="mb-12 text-center">
+            <Reveal>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
+                Products
+              </p>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
+                What we supply
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-[#5a6478]">
+                Inverters, lithium batteries, power stations, solar panels and solar water pumps —
+                specified as part of a designed system.
+              </p>
+            </Reveal>
+          </div>
+          <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {productCategories.map((c) => (
+              <StaggerItem key={c.slug}>
+                <Link href={`/products/${c.slug}`} className="group relative block min-h-[240px] overflow-hidden rounded-2xl">
+                  <Image
+                    src={images[c.image].src}
+                    alt={images[c.image].alt}
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                    sizes="(max-width:768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220]/90 via-[#0b1220]/35 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                    <h3 className="text-xl font-extrabold">{c.title}</h3>
+                    <p className="mt-1 text-sm text-white/75">{c.short}</p>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <div className="mt-10 text-center">
+            <Link href="/products" className="font-semibold text-[#e8a317] hover:underline">
+              View all products →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="bg-[#0b1220] py-16 text-white">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
+          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
+            Technology partners
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {partners.map((p) => (
+              <Link
+                key={p.slug}
+                href="/partnerships"
+                className="rounded-2xl border border-white/10 px-4 py-5 text-center transition hover:border-[#e8a317]"
+              >
+                <span className="block font-bold">{p.name}</span>
+                <span className="mt-1 block text-xs text-white/55">{p.role}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

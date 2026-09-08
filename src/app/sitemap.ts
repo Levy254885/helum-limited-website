@@ -1,29 +1,18 @@
 import type { MetadataRoute } from "next";
-import { services } from "@/lib/content";
+import { allRoutes } from "@/lib/nav";
+import { allProducts, productCategories } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://helumlimited.com";
-  const staticRoutes = [
-    "",
-    "/about",
-    "/vision-mission",
-    "/values",
-    "/services",
-    "/why-helum",
-    "/solutions",
-    "/who-we-serve",
-    "/process",
-    "/partnerships",
-    "/opportunity",
-    "/contact",
-    "/privacy",
-    "/terms",
+  const productPaths = [
+    ...productCategories.map((c) => `/products/${c.slug}`),
+    ...allProducts.map((p) => `/products/${p.category}/${p.slug}`),
   ];
-  const serviceRoutes = services.map((s) => `/services/${s.slug}`);
-  return [...staticRoutes, ...serviceRoutes].map((path) => ({
-    url: `${base}${path}`,
+  const paths = [...new Set([...allRoutes, ...productPaths])];
+  return paths.map((path) => ({
+    url: `${base}${path === "/" ? "" : path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : 0.8,
+    priority: path === "/" ? 1 : 0.8,
   }));
 }

@@ -68,10 +68,15 @@ export default function ContactForm() {
         </label>
         <select id="solution" name="solution" className={input}>
           <option value="">Select an option</option>
-          <option value="renewable">Renewable Energy Solutions</option>
-          <option value="energy-tech">Energy & Power Technology</option>
-          <option value="productive">Productive-Use Technology</option>
-          <option value="partnership">Strategic Technology Partnership</option>
+          <option value="inverters">Inverters</option>
+          <option value="lithium">Lithium batteries</option>
+          <option value="power-stations">Power stations</option>
+          <option value="panels">Solar panels</option>
+          <option value="pumps">Solar water pumps</option>
+          <option value="productive">Productive-Use / Agriculture</option>
+          <option value="partnership">Technology Partnership</option>
+          <option value="investment">Investment / Growth</option>
+          <option value="consultation">Request a Consultation</option>
           <option value="general">General Enquiry</option>
         </select>
       </div>

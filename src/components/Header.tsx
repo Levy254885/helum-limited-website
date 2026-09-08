@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { company, nav } from "@/lib/content";
+import { company } from "@/lib/content";
+import { navGroups } from "@/lib/nav";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const isHome = pathname === "/";
@@ -22,6 +25,8 @@ export default function Header() {
 
   useEffect(() => {
     setOpen(false);
+    setOpenGroup(null);
+    setMobileGroup(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -42,12 +47,9 @@ export default function Header() {
           scrolled || !isHome ? "header-scrolled" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-6">
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <motion.span
-              whileHover={reduce ? undefined : { rotate: 15, scale: 1.05 }}
-              className={text}
-            >
+        <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-6">
+          <Link href="/" className="flex shrink-0 items-center gap-3 group">
+            <motion.span whileHover={reduce ? undefined : { rotate: 15, scale: 1.05 }} className={text}>
               <svg width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden>
                 <circle cx="18" cy="18" r="16" stroke="currentColor" strokeWidth="2" />
                 <circle cx="18" cy="18" r="6" fill="currentColor" />
@@ -60,54 +62,82 @@ export default function Header() {
               </svg>
             </motion.span>
             <span className="flex flex-col leading-tight">
-              <span className={`text-[1.05rem] font-extrabold tracking-wide ${text}`}>
-                HELUM
-              </span>
-              <span className={`text-[0.6rem] font-medium tracking-[0.14em] ${muted}`}>
-                LIMITED
-              </span>
+              <span className={`text-[1.05rem] font-extrabold tracking-wide ${text}`}>HELUM</span>
+              <span className={`text-[0.6rem] font-medium tracking-[0.14em] ${muted}`}>LIMITED</span>
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Main">
-            {nav.map((item) => {
-              const active = pathname === item.href || pathname.startsWith(item.href + "/");
+          <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
+            {navGroups.map((group) => {
+              const active =
+                pathname === group.href ||
+                group.children.some((c) => pathname === c.href || pathname.startsWith(c.href + "/"));
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`relative text-sm font-medium transition-colors ${
-                    active
-                      ? light
-                        ? "text-[#e8a317]"
-                        : "text-[#e8a317]"
-                      : light
-                        ? "text-white/90 hover:text-[#e8a317]"
-                        : "text-[#1a1f2e] hover:text-[#e8a317]"
-                  }`}
+                <div
+                  key={group.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenGroup(group.label)}
+                  onMouseLeave={() => setOpenGroup(null)}
                 >
-                  {item.label}
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#e8a317]"
-                    />
-                  )}
-                </Link>
+                  <Link
+                    href={group.href}
+                    className={`flex items-center gap-1 rounded-full px-3 py-2 text-[13px] font-medium transition ${
+                      active
+                        ? "text-[#e8a317]"
+                        : light
+                          ? "text-white/90 hover:text-[#e8a317]"
+                          : "text-[#1a1f2e] hover:text-[#e8a317]"
+                    }`}
+                    aria-expanded={openGroup === group.label}
+                    aria-haspopup="true"
+                  >
+                    {group.label}
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden>
+                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" />
+                    </svg>
+                  </Link>
+                  <AnimatePresence>
+                    {openGroup === group.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute left-0 top-full z-50 w-[280px] pt-2"
+                      >
+                        <div className="rounded-2xl border border-[#e5e8ef] bg-white p-2 shadow-xl">
+                          {group.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className={`block rounded-xl px-3 py-2.5 text-sm transition hover:bg-[#f7f8fa] ${
+                                pathname === child.href
+                                  ? "font-semibold text-[#e8a317]"
+                                  : "text-[#1a1f2e]"
+                              }`}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               );
             })}
           </nav>
 
           <Link
             href="/contact"
-            className="hidden lg:inline-flex rounded-full bg-[#e8a317] px-5 py-2.5 text-sm font-semibold text-[#0b1220] transition hover:bg-[#d4920f] hover:scale-[1.03]"
+            className="hidden rounded-full bg-[#e8a317] px-5 py-2.5 text-sm font-semibold text-[#0b1220] transition hover:bg-[#d4920f] hover:scale-[1.03] xl:inline-flex"
           >
             Contact Us
           </Link>
 
           <button
             type="button"
-            className="relative z-[60] flex h-11 w-11 items-center justify-center lg:hidden"
+            className="relative z-[60] flex h-11 w-11 items-center justify-center xl:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
@@ -140,7 +170,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-[#0b1220]/50 lg:hidden"
+              className="fixed inset-0 z-40 bg-[#0b1220]/50 xl:hidden"
               onClick={() => setOpen(false)}
             />
             <motion.nav
@@ -148,36 +178,44 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="fixed right-0 top-0 z-50 h-dvh w-[min(320px,88vw)] bg-white px-6 pb-8 pt-24 shadow-2xl lg:hidden"
+              className="fixed right-0 top-0 z-50 h-dvh w-[min(380px,92vw)] overflow-y-auto bg-white px-5 pb-10 pt-24 shadow-2xl xl:hidden"
             >
-              <ul className="flex flex-col gap-1">
-                {nav.map((item, i) => (
-                  <motion.li
-                    key={item.href}
-                    initial={{ opacity: 0, x: 24 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i }}
+              {navGroups.map((group) => (
+                <div key={group.label} className="border-b border-[#e5e8ef]">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between py-3.5 text-left text-base font-semibold text-[#1a1f2e]"
+                    onClick={() => setMobileGroup(mobileGroup === group.label ? null : group.label)}
+                    aria-expanded={mobileGroup === group.label}
                   >
-                    <Link
-                      href={item.href}
-                      className="block py-3 text-lg font-medium text-[#1a1f2e]"
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.li>
-                ))}
-                <li className="pt-5">
-                  <Link
-                    href="/contact"
-                    className="flex w-full items-center justify-center rounded-full bg-[#e8a317] py-3.5 text-sm font-semibold text-[#0b1220]"
-                    onClick={() => setOpen(false)}
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-              </ul>
-              <p className="mt-10 text-xs text-[#8b95a8]">{company.tagline}</p>
+                    {group.label}
+                    <span className="text-[#e8a317]">{mobileGroup === group.label ? "−" : "+"}</span>
+                  </button>
+                  {mobileGroup === group.label && (
+                    <ul className="pb-3 pl-2">
+                      {group.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="block py-2 text-sm text-[#5a6478]"
+                            onClick={() => setOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+              <Link
+                href="/contact"
+                className="mt-6 flex w-full items-center justify-center rounded-full bg-[#e8a317] py-3.5 text-sm font-semibold text-[#0b1220]"
+                onClick={() => setOpen(false)}
+              >
+                Contact Us
+              </Link>
+              <p className="mt-8 text-xs text-[#8b95a8]">{company.tagline}</p>
             </motion.nav>
           </>
         )}

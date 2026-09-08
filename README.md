@@ -1,38 +1,15 @@
-# HELUM LIMITED — Animated Multi-Page Website
+# HELUM LIMITED — Website
 
 **Technology. Energy. Possibility.**  
 **Engineering the Intelligence of Energy**
 
-Highly animated Next.js 15 website with 18+ pages, Framer Motion, SEO, and content from the official company profile & letterhead.
+Next.js 15 website for Helum Limited with dropdown navigation and 35+ detailed pages.
 
-## Pages
+## Navigation
 
-1. Home (animated hero, parallax, floating orbs, staggered sections)
-2. About
-3. Vision & Mission
-4. Values
-5. Services (overview)
-6. Renewable Energy Solutions
-7. Energy & Power Technology
-8. Productive-Use Technology
-9. Strategic Technology Partnerships (service detail)
-10. Why Helum
-11. Solutions
-12. Who We Serve
-13. Process (interactive steps)
-14. Partnerships
-15. Opportunity / Investment
-16. Contact (+ working form)
-17. Privacy
-18. Terms
+Home · About · Services · Solutions · Technology & Partnerships · Process · Contact
 
-## Stack
-
-- Next.js 15 (App Router)
-- React 19 + TypeScript
-- Tailwind CSS v4
-- Framer Motion (scroll, stagger, page transitions, hero parallax, hover)
-- `prefers-reduced-motion` respected
+Each item opens a dropdown. The mobile menu lists every page in accordion groups.
 
 ## Run
 
@@ -43,12 +20,8 @@ npm run dev
 
 ## Deploy
 
-```bash
-npx vercel
-```
+Connected to Vercel from this repository.
 
-Connect this repo to Vercel for continuous deployment.
+## Content
 
-## Content source
-
-All company copy is taken from the Helum Limited Company Profile (September 2026) and letterhead. No invented statistics, partners, or certifications.
+Copy is taken from the Helum Limited Company Profile (September 2026) and letterhead. No invented clients, statistics, certifications or partners.
