@@ -24,12 +24,16 @@ export const metadata: Metadata = {
       "Practical technology and renewable energy solutions for Africa. Engineering the Intelligence of Energy.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200",
+        url: "/logo.png",
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: "Helum Limited",
       },
     ],
+  },
+  icons: {
+    icon: "/logo.png",
+    apple: "/apple-touch-icon.png",
   },
   twitter: {
     card: "summary_large_image",

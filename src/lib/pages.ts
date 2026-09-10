@@ -899,7 +899,7 @@ export const pages: Record<string, PageSpec> = {
     eyebrow: "Market access",
     heroTitle: "A bridge into African markets",
     heroSubtitle: "Kenyan market intelligence plus international technology relationships.",
-    image: "market",
+    image: "nairobi",
     layout: "checklist",
     intro: [
       "Helum's strategy is to combine Kenyan market intelligence with international technology and manufacturing relationships, creating a bridge between innovative technology providers and African markets.",

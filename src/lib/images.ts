@@ -17,8 +17,8 @@ export const images = {
     alt: "Professional handshake representing partnership and integrity",
   },
   why: {
-    src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
-    alt: "African commercial district and business environment",
+    src: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80",
+    alt: "Nairobi skyline representing African market understanding",
   },
   approach: {
     src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
@@ -53,16 +53,16 @@ export const images = {
     alt: "High-voltage energy infrastructure and intelligent power systems",
   },
   inverter: {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1600&q=80",
-    alt: "Electrical inverter and power electronics cabinet",
+    src: "https://images.unsplash.com/photo-1558449028-b53a0a4dcb61?auto=format&fit=crop&w=1600&q=80",
+    alt: "Solar inverter mounted with photovoltaic system",
   },
   lithium: {
     src: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=1600&q=80",
     alt: "Lithium battery energy storage cabinets",
   },
   powerStation: {
-    src: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1600&q=80",
-    alt: "Portable solar power station and energy equipment",
+    src: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1600&q=80",
+    alt: "Compact energy storage and charging power station",
   },
   productive: {
     src: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1600&q=80",
@@ -89,8 +89,8 @@ export const images = {
     alt: "Farm operations that benefit from productive-use energy",
   },
   water: {
-    src: "https://images.unsplash.com/photo-1463123081488-789f998ac9c4?auto=format&fit=crop&w=1600&q=80",
-    alt: "Irrigation water flowing across agricultural land",
+    src: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1600&q=80",
+    alt: "Irrigation system watering crops with pumped water",
   },
   food: {
     src: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1600&q=80",
@@ -109,8 +109,8 @@ export const images = {
     alt: "Engineer inspecting technology equipment for market deployment",
   },
   market: {
-    src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
-    alt: "Market environment representing African commercial access",
+    src: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80",
+    alt: "Nairobi city skyline representing Kenyan market access",
   },
   opportunity: {
     src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
@@ -139,6 +139,22 @@ export const images = {
   technology: {
     src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
     alt: "Circuit and technology detail representing intelligent energy systems",
+  },
+  students: {
+    src: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1600&q=80",
+    alt: "Students in a classroom who need reliable lighting to study",
+  },
+  studyLight: {
+    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80",
+    alt: "Children studying with the help of electric light",
+  },
+  homeLight: {
+    src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80",
+    alt: "Home interior with reliable electric lighting in the evening",
+  },
+  nairobi: {
+    src: "https://images.unsplash.com/photo-1611348522141-347294daac38?auto=format&fit=crop&w=1600&q=80",
+    alt: "Nairobi at dusk, Helum's Kenyan market base",
   },
   // aliases used by earlier pages
   serviceRenewable: {

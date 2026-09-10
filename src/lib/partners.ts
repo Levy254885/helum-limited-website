@@ -5,7 +5,7 @@ export const partners = [
     name: "SVC Energy",
     role: "Solar inverters and energy storage",
     summary:
-      "Helum works with SVC Energy on solar inverters, lithium batteries and energy storage products for homes and businesses.",
+      "SVC Energy is a Helum supplier of solar inverters, lithium batteries and energy storage products. Helum specifies and deploys these technologies for Kenyan customers — we do not resell SVC branding as our own.",
     href: "https://www.svcenergy.com/",
   },
   {

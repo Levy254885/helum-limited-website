@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { company } from "@/lib/content";
 import { navGroups } from "@/lib/nav";
+import Logo from "./Logo";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,17 +50,8 @@ export default function Header() {
       >
         <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-6">
           <Link href="/" className="flex shrink-0 items-center gap-3 group">
-            <motion.span whileHover={reduce ? undefined : { rotate: 15, scale: 1.05 }} className={text}>
-              <svg width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden>
-                <circle cx="18" cy="18" r="16" stroke="currentColor" strokeWidth="2" />
-                <circle cx="18" cy="18" r="6" fill="currentColor" />
-                <path
-                  d="M18 4v4M18 28v4M4 18h4M28 18h4M8.5 8.5l2.8 2.8M24.7 24.7l2.8 2.8M8.5 27.5l2.8-2.8M24.7 11.3l2.8-2.8"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
+            <motion.span whileHover={reduce ? undefined : { scale: 1.05 }}>
+              <Logo size={44} />
             </motion.span>
             <span className="flex flex-col leading-tight">
               <span className={`text-[1.05rem] font-extrabold tracking-wide ${text}`}>HELUM</span>

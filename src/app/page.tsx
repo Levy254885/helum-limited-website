@@ -178,6 +178,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Visual assurance — people using energy */}
+      <section className="bg-[#f7f8fa] py-20 sm:py-28">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
+          <Reveal>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
+              Why energy matters
+            </p>
+            <h2 className="mb-4 max-w-2xl text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
+              Light to study. Power to work. Water to grow.
+            </h2>
+            <p className="mb-12 max-w-2xl text-[#5a6478] leading-relaxed">
+              Helum solutions are meant to be seen in real rooms, classrooms and farms — not only on a
+              specification sheet.
+            </p>
+          </Reveal>
+          <Stagger className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                img: images.students,
+                title: "Students who can study after dark",
+                body: "Reliable lighting is a household and institutional energy problem Helum is built to solve.",
+              },
+              {
+                img: images.homeLight,
+                title: "Homes that stay on",
+                body: "Backup power and solar for essential circuits when the grid drops.",
+              },
+              {
+                img: images.water,
+                title: "Farms that can pump water",
+                body: "Solar water pumps turn energy into irrigation and rural water supply.",
+              },
+            ].map((card) => (
+              <StaggerItem key={card.title}>
+                <article className="overflow-hidden rounded-2xl bg-white shadow-sm">
+                  <div className="relative h-56">
+                    <Image src={card.img.src} alt={card.img.alt} fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="mb-2 font-bold text-[#1a1f2e]">{card.title}</h3>
+                    <p className="text-sm leading-relaxed text-[#5a6478]">{card.body}</p>
+                  </div>
+                </article>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
       {/* Vision / Mission strip */}
       <section className="bg-[#0b1220] py-16 text-white">
         <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-6 md:grid-cols-2">

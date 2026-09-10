@@ -4,6 +4,7 @@ import Link from "next/link";
 import { company } from "@/lib/content";
 import { navGroups } from "@/lib/nav";
 import { Reveal } from "./Motion";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -12,12 +13,7 @@ export default function Footer() {
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">
           <Reveal>
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="text-white">
-                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" aria-hidden>
-                  <circle cx="18" cy="18" r="16" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="18" cy="18" r="6" fill="currentColor" />
-                </svg>
-              </span>
+              <Logo size={40} />
               <span className="flex flex-col leading-tight">
                 <span className="text-base font-extrabold tracking-wide text-white">HELUM</span>
                 <span className="text-[0.6rem] font-medium tracking-[0.12em] text-white/55">
