@@ -12,22 +12,29 @@ type Props = {
   dark?: boolean;
 };
 
-export default function PageHero({ eyebrow, title, subtitle, image, dark = true }: Props) {
+export default function PageHero({ eyebrow, title, subtitle, image }: Props) {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden pt-[72px]">
+    <section className="relative min-h-[68vh] overflow-hidden pt-[80px]">
       {image ? (
         <div className="absolute inset-0">
-          <Image src={image.src} alt={image.alt} fill className="object-cover" priority sizes="100vw" />
-          <div className="absolute inset-0 bg-[#0b1220]/70" />
-          <div className="grain absolute inset-0 opacity-40" />
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/88 via-[var(--color-ink)]/55 to-[var(--color-ink)]/30" />
+          <div className="grain absolute inset-0" />
         </div>
       ) : (
-        <div className={`absolute inset-0 ${dark ? "bg-[#0b1220]" : "bg-[#f7f8fa]"}`} />
+        <div className="absolute inset-0 bg-[var(--color-ink)]" />
       )}
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-5 py-20 sm:px-6 sm:py-28">
+      <div className="wrap relative z-10 flex min-h-[calc(68vh-80px)] flex-col justify-end pb-16 pt-20 sm:pb-24">
         <motion.div
           variants={reduce ? undefined : staggerContainer}
           initial={reduce ? undefined : "hidden"}
@@ -35,29 +42,20 @@ export default function PageHero({ eyebrow, title, subtitle, image, dark = true 
           className="max-w-3xl"
         >
           {eyebrow && (
-            <motion.p
-              variants={reduce ? undefined : heroItem}
-              className={`mb-4 text-sm font-semibold uppercase tracking-wider ${
-                image || dark ? "text-[#e8a317]" : "text-[#e8a317]"
-              }`}
-            >
+            <motion.p variants={reduce ? undefined : heroItem} className="eyebrow mb-5">
               {eyebrow}
             </motion.p>
           )}
           <motion.h1
             variants={reduce ? undefined : heroTitle}
-            className={`text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl ${
-              image || dark ? "text-white" : "text-[#1a1f2e]"
-            }`}
+            className="font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl md:text-6xl"
           >
             {title}
           </motion.h1>
           {subtitle && (
             <motion.p
               variants={reduce ? undefined : heroItem}
-              className={`mt-5 max-w-xl text-lg leading-relaxed ${
-                image || dark ? "text-white/80" : "text-[#5a6478]"
-              }`}
+              className="mt-6 max-w-xl text-base leading-relaxed text-white/72 sm:text-lg"
             >
               {subtitle}
             </motion.p>

@@ -74,7 +74,7 @@ export default function ProductsPage() {
               <Link
                 key={p.slug}
                 href="/partnerships"
-                className="rounded-2xl border border-[#e5e8ef] bg-[#f7f8fa] px-4 py-5 text-center transition hover:border-[#e8a317]"
+                className="border border-[var(--color-line)] bg-[var(--color-paper)] px-4 py-5 text-center transition hover:border-[var(--color-gold)]"
               >
                 <span className="block font-bold text-[#1a1f2e]">{p.name}</span>
                 <span className="mt-1 block text-xs text-[#5a6478]">{p.role}</span>

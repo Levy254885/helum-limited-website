@@ -40,7 +40,7 @@ export default function WhyHelumPage() {
               <p className="text-lg leading-relaxed text-[#5a6478]">{item.body}</p>
             </Reveal>
             <Reveal delay={0.1} className={i % 2 ? "lg:order-1" : ""}>
-              <div className="group relative overflow-hidden rounded-2xl shadow-xl">
+              <div className="img-zoom group relative overflow-hidden">
                 <Image
                   src={item.image.src}
                   alt={item.image.alt}
@@ -63,7 +63,7 @@ export default function WhyHelumPage() {
           </p>
           <Link
             href="/products"
-            className="inline-flex rounded-full bg-[#e8a317] px-7 py-3.5 text-sm font-semibold text-[#0b1220]"
+            className="btn btn-gold"
           >
             Browse products
           </Link>

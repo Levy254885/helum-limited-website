@@ -35,7 +35,7 @@ export default function ProcessPage() {
               <li key={step.num}>
                 <Reveal>
                   <article className="grid items-center gap-8 md:grid-cols-[1fr_1.1fr]">
-                    <div className="relative overflow-hidden rounded-2xl">
+                    <div className="img-zoom relative overflow-hidden">
                       <Image
                         src={visuals[i].src}
                         alt={visuals[i].alt}

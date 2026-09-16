@@ -212,7 +212,7 @@ export default function FlexiblePage({ spec }: { spec: PageSpec }) {
                 </p>
               </div>
             </div>
-            <div className="rounded-2xl border border-[#e5e8ef] bg-[#f7f8fa] p-6 sm:p-8">
+            <div className="border border-[var(--color-line)] bg-[var(--color-paper)] p-6 sm:p-8">
               <ContactForm />
             </div>
           </div>

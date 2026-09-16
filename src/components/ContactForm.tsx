@@ -32,7 +32,7 @@ export default function ContactForm() {
   }
 
   const input =
-    "w-full rounded-lg border border-[#e5e8ef] bg-white px-4 py-3 transition focus:border-[#e8a317] focus:outline-none focus:ring-2 focus:ring-[#e8a317]/25";
+    "w-full border border-[var(--color-line)] bg-white px-4 py-3 transition focus:border-[var(--color-gold)] focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
@@ -86,15 +86,13 @@ export default function ContactForm() {
         </label>
         <textarea id="message" name="message" rows={4} required placeholder="Tell us about your energy or technology needs..." className={input} />
       </div>
-      <motion.button
+      <button
         type="submit"
         disabled={status === "loading"}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full rounded-full bg-[#e8a317] px-6 py-3.5 text-base font-semibold text-[#0b1220] transition hover:bg-[#d4920f] disabled:opacity-70"
+        className="btn btn-gold w-full disabled:opacity-70"
       >
         {status === "loading" ? "Sending…" : "Send Enquiry"}
-      </motion.button>
+      </button>
 
       <AnimatePresence>
         {status === "success" && (

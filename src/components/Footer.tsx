@@ -3,55 +3,44 @@
 import Link from "next/link";
 import { company } from "@/lib/content";
 import { navGroups } from "@/lib/nav";
-import { Reveal } from "./Motion";
 import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b1220] pt-16 text-white/80" role="contentinfo">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-6">
-        <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">
-          <Reveal>
+    <footer className="bg-[var(--color-ink)] text-white/70" role="contentinfo">
+      <div className="wrap pt-16 pb-8">
+        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-2 lg:grid-cols-12">
+          <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-3">
               <Logo size={40} />
-              <span className="flex flex-col leading-tight">
-                <span className="text-base font-extrabold tracking-wide text-white">HELUM</span>
-                <span className="text-[0.6rem] font-medium tracking-[0.12em] text-white/55">
-                  LIMITED
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-sm font-bold tracking-[0.18em] text-white">
+                  HELUM
                 </span>
+                <span className="mt-1 text-[0.58rem] tracking-[0.2em] text-white/50">LIMITED</span>
               </span>
             </Link>
-            <p className="mt-4 text-sm font-medium text-[#e8a317]">{company.tagline}</p>
-            <p className="mt-3 max-w-[280px] text-sm leading-relaxed text-white/60">
+            <p className="mt-5 text-[0.72rem] font-semibold tracking-[0.16em] uppercase text-[var(--color-gold)]">
+              {company.tagline}
+            </p>
+            <p className="mt-4 max-w-[280px] text-sm leading-relaxed text-white/55">
               Connecting innovative technology, reliable energy and productive opportunity to create
               practical solutions for Africa.
             </p>
-          </Reveal>
+          </div>
 
-          {navGroups.slice(0, 3).map((g) => (
-            <Reveal key={g.label}>
-              <h4 className="mb-5 text-xs font-bold uppercase tracking-wider text-white">{g.label}</h4>
+          {navGroups.slice(0, 4).map((g) => (
+            <div key={g.label} className="lg:col-span-2">
+              <h4 className="mb-5 text-[0.68rem] font-semibold tracking-[0.16em] uppercase text-white">
+                {g.label}
+              </h4>
               <ul className="flex flex-col gap-2.5">
-                {g.children.map((item) => (
+                {g.children.slice(0, 6).map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="text-sm text-white/65 transition hover:text-[#e8a317]">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="grid gap-8 border-b border-white/10 py-10 md:grid-cols-3">
-          {navGroups.slice(3).map((g) => (
-            <div key={g.label}>
-              <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">{g.label}</h4>
-              <ul className="flex flex-col gap-2.5">
-                {g.children.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="text-sm text-white/65 transition hover:text-[#e8a317]">
+                    <Link
+                      href={item.href}
+                      className="text-sm text-white/55 transition-colors hover:text-[var(--color-gold)]"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -61,15 +50,18 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 py-6 text-center sm:flex-row sm:text-left">
-          <p className="text-sm text-white/45">© 2026 HELUM LIMITED. All rights reserved.</p>
-          <div className="flex flex-wrap justify-center gap-5 text-sm text-white/45">
+        <div className="flex flex-col gap-4 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 HELUM LIMITED. All rights reserved.</p>
+          <div className="flex flex-wrap gap-5">
             <a href={company.phoneHref} className="hover:text-white/70">
               {company.phone}
             </a>
             <a href={`mailto:${company.email}`} className="hover:text-white/70">
               {company.email}
             </a>
+            <span>
+              {company.address.line2}, {company.address.city}
+            </span>
             <Link href="/privacy" className="hover:text-white/70">
               Privacy
             </Link>

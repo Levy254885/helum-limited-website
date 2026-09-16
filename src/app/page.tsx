@@ -17,183 +17,111 @@ export default function HomePage() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 180]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const reduce = useReducedMotion();
 
   return (
     <main>
-      {/* Animated Hero */}
-      <section
-        ref={heroRef}
-        className="relative flex min-h-dvh items-center justify-center overflow-hidden px-5 pb-20 pt-[calc(72px+2rem)] sm:px-6"
-      >
+      <section ref={heroRef} className="relative flex min-h-dvh items-end overflow-hidden">
         <motion.div style={reduce ? undefined : { y }} className="absolute inset-0">
           <Image
             src={images.hero.src}
             alt={images.hero.alt}
             fill
             priority
-            className="object-cover scale-110"
+            className="object-cover scale-105"
             sizes="100vw"
           />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg,rgba(11,18,32,0.5) 0%,rgba(11,18,32,0.4) 35%,rgba(11,18,32,0.72) 100%)",
-            }}
-          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)]/90 via-[var(--color-ink)]/55 to-[var(--color-ink)]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/70 via-transparent to-[var(--color-ink)]/30" />
           <div className="grain absolute inset-0" />
         </motion.div>
 
-        {/* Floating orbs */}
-        {!reduce && (
-          <>
-            <motion.div
-              className="pointer-events-none absolute left-[12%] top-[28%] h-40 w-40 rounded-full bg-[#e8a317]/15 blur-3xl"
-              animate={{ y: [0, -20, 0], scale: [1, 1.08, 1] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="pointer-events-none absolute right-[15%] bottom-[25%] h-52 w-52 rounded-full bg-sky-400/10 blur-3xl"
-              animate={{ y: [0, 16, 0], scale: [1, 1.12, 1] }}
-              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </>
-        )}
-
         <motion.div
-          style={reduce ? undefined : { opacity }}
-          className="relative z-10 mx-auto max-w-[840px] text-center"
+          className="wrap relative z-10 pb-20 pt-32 sm:pb-28"
           variants={reduce ? undefined : staggerContainer}
           initial={reduce ? undefined : "hidden"}
           animate={reduce ? undefined : "visible"}
         >
-          <motion.div variants={reduce ? undefined : heroItem} className="mb-6">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-              <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-[#e8a317]" />
-              {company.tagline}
-            </span>
-          </motion.div>
-
+          <motion.p variants={reduce ? undefined : heroItem} className="eyebrow mb-6">
+            {company.tagline}
+          </motion.p>
           <motion.h1
             variants={reduce ? undefined : heroTitle}
-            className="mb-5 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+            className="max-w-[16ch] font-display text-5xl font-semibold leading-[1.04] text-white sm:text-6xl lg:text-[4.6rem]"
           >
-            Engineering the
-            <br />
-            <span className="hero-highlight">Intelligence of Energy</span>
+            Engineering the Intelligence of Energy
           </motion.h1>
-
           <motion.p
             variants={reduce ? undefined : heroItem}
-            className="mb-3 text-lg font-medium text-white/95 sm:text-xl"
-          >
-            Technology and Energy Solutions Built for Africa
-          </motion.p>
-
-          <motion.p
-            variants={reduce ? undefined : heroItem}
-            className="mx-auto mb-10 max-w-[600px] text-base leading-relaxed text-white/75"
+            className="mt-6 max-w-[34rem] text-lg leading-relaxed text-white/72"
           >
             Helum connects innovative technology, reliable energy and productive solutions to help
             businesses, households, institutions and enterprises overcome real-world energy
             challenges.
           </motion.p>
-
-          <motion.div
-            variants={reduce ? undefined : heroItem}
-            className="flex flex-wrap justify-center gap-4"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/services"
-                className="inline-flex rounded-full bg-[#e8a317] px-8 py-3.5 text-base font-semibold text-[#0b1220] shadow-lg shadow-[#e8a317]/25"
-              >
-                Explore Our Solutions
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/contact"
-                className="inline-flex rounded-full border-2 border-white/50 bg-transparent px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white/10"
-              >
-                Talk to Helum
-              </Link>
-            </motion.div>
+          <motion.div variants={reduce ? undefined : heroItem} className="mt-10 flex flex-wrap gap-4">
+            <Link href="/services" className="btn btn-gold">
+              Explore solutions
+            </Link>
+            <Link href="/contact" className="btn btn-ghost">
+              Talk to Helum
+            </Link>
           </motion.div>
         </motion.div>
 
         {!reduce && (
           <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity }}
+            className="absolute bottom-8 right-8 hidden text-[0.65rem] tracking-[0.2em] uppercase text-white/45 sm:block"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
+            Scroll
           </motion.div>
         )}
       </section>
 
-      {/* About teaser */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-6 lg:grid-cols-2">
-          <Reveal>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-              About Helum
-            </p>
-            <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
+      <section className="bg-white py-24 sm:py-32">
+        <div className="wrap grid items-center gap-16 lg:grid-cols-12">
+          <Reveal className="lg:col-span-6">
+            <p className="eyebrow mb-5">About Helum</p>
+            <h2 className="mb-8 max-w-[14ch] font-display text-4xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl">
               Technology. Energy. Possibility.
             </h2>
-            <p className="mb-4 text-lg font-medium leading-relaxed text-[#1a1f2e]">{about.lead}</p>
-            <p className="mb-4 text-[#5a6478] leading-relaxed">{about.belief}</p>
-            <p className="mb-8 text-[#5a6478] leading-relaxed">{about.beyond}</p>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 font-semibold text-[#1a1f2e] transition hover:gap-3 hover:text-[#e8a317]"
-            >
-              Learn more about Helum <span aria-hidden>→</span>
+            <p className="mb-5 text-lg leading-relaxed text-[var(--color-ink)]">{about.lead}</p>
+            <p className="mb-5 leading-relaxed text-[var(--color-muted)]">{about.belief}</p>
+            <p className="mb-10 leading-relaxed text-[var(--color-muted)]">{about.beyond}</p>
+            <Link href="/about" className="link-underline font-display text-sm font-semibold tracking-wide">
+              Learn more about Helum →
             </Link>
           </Reveal>
-          <Reveal delay={0.15}>
-            <div className="relative overflow-hidden rounded-2xl shadow-xl">
+          <Reveal delay={0.1} className="lg:col-span-6">
+            <div className="img-zoom relative overflow-hidden">
               <Image
                 src={images.about.src}
                 alt={images.about.alt}
                 width={900}
-                height={700}
-                className="h-auto w-full object-cover"
-              />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-[#0b1220]/40 to-transparent"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+                height={720}
+                className="h-[420px] w-full object-cover sm:h-[520px]"
               />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Visual assurance — people using energy */}
-      <section className="bg-[#f7f8fa] py-20 sm:py-28">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
+      <section className="bg-[var(--color-paper)] py-24 sm:py-32">
+        <div className="wrap">
           <Reveal>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-              Why energy matters
-            </p>
-            <h2 className="mb-4 max-w-2xl text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
+            <p className="eyebrow mb-5">Why energy matters</p>
+            <h2 className="mb-6 max-w-[18ch] font-display text-4xl font-semibold text-[var(--color-ink)] sm:text-5xl">
               Light to study. Power to work. Water to grow.
             </h2>
-            <p className="mb-12 max-w-2xl text-[#5a6478] leading-relaxed">
+            <p className="mb-14 max-w-xl leading-relaxed text-[var(--color-muted)]">
               Helum solutions are meant to be seen in real rooms, classrooms and farms — not only on a
               specification sheet.
             </p>
           </Reveal>
-          <Stagger className="grid gap-5 md:grid-cols-3">
+          <Stagger className="grid gap-6 md:grid-cols-3">
             {[
               {
                 img: images.students,
@@ -212,14 +140,14 @@ export default function HomePage() {
               },
             ].map((card) => (
               <StaggerItem key={card.title}>
-                <article className="overflow-hidden rounded-2xl bg-white shadow-sm">
-                  <div className="relative h-56">
+                <article>
+                  <div className="img-zoom relative mb-5 h-64 overflow-hidden">
                     <Image src={card.img.src} alt={card.img.alt} fill className="object-cover" sizes="33vw" />
                   </div>
-                  <div className="p-5">
-                    <h3 className="mb-2 font-bold text-[#1a1f2e]">{card.title}</h3>
-                    <p className="text-sm leading-relaxed text-[#5a6478]">{card.body}</p>
-                  </div>
+                  <h3 className="mb-2 font-display text-xl font-semibold text-[var(--color-ink)]">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[var(--color-muted)]">{card.body}</p>
                 </article>
               </StaggerItem>
             ))}
@@ -227,36 +155,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vision / Mission strip */}
-      <section className="bg-[#0b1220] py-16 text-white">
-        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-6 md:grid-cols-2">
+      <section className="bg-[var(--color-ink)] py-20 text-white">
+        <div className="wrap grid gap-14 md:grid-cols-2">
           <Reveal>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-              Vision
-            </p>
-            <p className="text-xl leading-relaxed font-medium sm:text-2xl">{vision}</p>
+            <p className="eyebrow mb-4">Vision</p>
+            <p className="font-display text-2xl font-medium leading-snug sm:text-3xl">{vision}</p>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-              Mission
-            </p>
-            <p className="text-xl leading-relaxed font-medium sm:text-2xl">{mission}</p>
+          <Reveal delay={0.08}>
+            <p className="eyebrow mb-4">Mission</p>
+            <p className="font-display text-2xl font-medium leading-snug sm:text-3xl">{mission}</p>
           </Reveal>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-[#f7f8fa] py-20 sm:py-28">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-          <div className="mb-14 text-center">
+      <section className="bg-white py-24 sm:py-32">
+        <div className="wrap">
+          <div className="mb-16 max-w-2xl">
             <Reveal>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-                What We Do
-              </p>
-              <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
-                Integrated Technology & Energy Solutions
+              <p className="eyebrow mb-5">What we do</p>
+              <h2 className="mb-5 font-display text-4xl font-semibold text-[var(--color-ink)] sm:text-5xl">
+                Integrated technology & energy solutions
               </h2>
-              <p className="mx-auto max-w-xl text-[#5a6478]">
+              <p className="leading-relaxed text-[var(--color-muted)]">
                 Practical solutions designed around real customer needs—from power and energy access
                 to productive-use technologies.
               </p>
@@ -265,207 +185,181 @@ export default function HomePage() {
           <Stagger className="grid gap-6 md:grid-cols-2">
             {services.map((s) => (
               <StaggerItem key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="group block h-full">
-                  <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e5e8ef] bg-white transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
-                    <div className="relative aspect-[16/9] overflow-hidden">
-                      <Image
-                        src={
-                          s.slug === "renewable-energy"
-                            ? images.renewable.src
-                            : s.slug === "energy-power-technology"
-                              ? images.energyTech.src
-                              : s.slug === "productive-use"
-                                ? images.productive.src
-                                : images.partnerships.src
-                        }
-                        alt={s.title}
-                        fill
-                        className="object-cover transition duration-700 group-hover:scale-105"
-                        sizes="(max-width:768px) 100vw, 50vw"
-                      />
-                      <span className="absolute left-4 top-4 rounded-md bg-[#e8a317] px-2.5 py-1 text-sm font-bold text-[#0b1220]">
-                        {s.num}
-                      </span>
-                    </div>
-                    <div className="flex flex-1 flex-col p-6">
-                      <h3 className="mb-2 text-xl font-bold text-[#1a1f2e] group-hover:text-[#e8a317] transition">
-                        {s.title}
-                      </h3>
-                      <p className="mb-4 flex-1 text-sm leading-relaxed text-[#5a6478]">{s.short}</p>
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a1f2e] transition group-hover:gap-3 group-hover:text-[#e8a317]">
-                        Explore <span aria-hidden>→</span>
-                      </span>
-                    </div>
-                  </article>
+                <Link href={`/services/${s.slug}`} className="group block">
+                  <div className="img-zoom relative mb-5 aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={
+                        s.slug === "renewable-energy"
+                          ? images.renewable.src
+                          : s.slug === "energy-power-technology"
+                            ? images.energyTech.src
+                            : s.slug === "productive-use"
+                              ? images.productive.src
+                              : images.partnerships.src
+                      }
+                      alt={s.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width:768px) 100vw, 50vw"
+                    />
+                    <span className="absolute left-0 top-0 bg-[var(--color-gold)] px-3 py-1 font-display text-xs font-bold text-[var(--color-ink)]">
+                      {s.num}
+                    </span>
+                  </div>
+                  <h3 className="mb-2 font-display text-2xl font-semibold text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-gold)]">
+                    {s.title}
+                  </h3>
+                  <p className="mb-4 max-w-md text-sm leading-relaxed text-[var(--color-muted)]">
+                    {s.short}
+                  </p>
+                  <span className="font-display text-[0.72rem] font-semibold tracking-[0.12em] uppercase text-[var(--color-ink)]">
+                    Explore →
+                  </span>
                 </Link>
               </StaggerItem>
             ))}
           </Stagger>
-          <div className="mt-10 text-center">
-            <Link
-              href="/services"
-              className="inline-flex rounded-full border-2 border-[#e5e8ef] px-6 py-3 text-sm font-semibold text-[#1a1f2e] transition hover:border-[#1a1f2e]"
-            >
+          <div className="mt-14">
+            <Link href="/services" className="btn btn-line">
               View all services
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Products — SVC-style category tiles */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-          <div className="mb-12 text-center">
+      <section className="bg-[var(--color-ink)] py-24 sm:py-32 text-white">
+        <div className="wrap">
+          <div className="mb-14 max-w-2xl">
             <Reveal>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-                Products
-              </p>
-              <h2 className="text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
-                What we supply
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-[#5a6478]">
+              <p className="eyebrow mb-5">Products</p>
+              <h2 className="font-display text-4xl font-semibold sm:text-5xl">What we supply</h2>
+              <p className="mt-5 leading-relaxed text-white/60">
                 Inverters, lithium batteries, power stations, solar panels and solar water pumps —
                 specified as part of a designed system.
               </p>
             </Reveal>
           </div>
-          <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {productCategories.map((c) => (
               <StaggerItem key={c.slug}>
-                <Link href={`/products/${c.slug}`} className="group relative block min-h-[240px] overflow-hidden rounded-2xl">
+                <Link href={`/products/${c.slug}`} className="img-zoom group relative block min-h-[280px] overflow-hidden">
                   <Image
                     src={images[c.image].src}
                     alt={images[c.image].alt}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    className="object-cover"
                     sizes="(max-width:768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220]/90 via-[#0b1220]/35 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                    <h3 className="text-xl font-extrabold">{c.title}</h3>
-                    <p className="mt-1 text-sm text-white/75">{c.short}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/90 via-[var(--color-ink)]/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <h3 className="font-display text-2xl font-semibold">{c.title}</h3>
+                    <p className="mt-2 text-sm text-white/65">{c.short}</p>
                   </div>
                 </Link>
               </StaggerItem>
             ))}
           </Stagger>
-          <div className="mt-10 text-center">
-            <Link href="/products" className="font-semibold text-[#e8a317] hover:underline">
-              View all products →
+          <div className="mt-12">
+            <Link href="/products" className="btn btn-ghost">
+              View all products
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Partners */}
-      <section className="bg-[#0b1220] py-16 text-white">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-            Technology partners
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <section className="bg-white py-20">
+        <div className="wrap">
+          <p className="eyebrow mb-10">Technology partners</p>
+          <div className="grid grid-cols-2 gap-px bg-[var(--color-line)] sm:grid-cols-3 lg:grid-cols-5">
             {partners.map((p) => (
               <Link
                 key={p.slug}
                 href="/partnerships"
-                className="rounded-2xl border border-white/10 px-4 py-5 text-center transition hover:border-[#e8a317]"
+                className="bg-white px-4 py-8 text-center transition-colors hover:bg-[var(--color-paper)]"
               >
-                <span className="block font-bold">{p.name}</span>
-                <span className="mt-1 block text-xs text-white/55">{p.role}</span>
+                <span className="block font-display text-sm font-semibold text-[var(--color-ink)]">
+                  {p.name}
+                </span>
+                <span className="mt-2 block text-[0.7rem] text-[var(--color-muted)]">{p.role}</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Helum */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-          <div className="mb-12 text-center">
+      <section className="bg-[var(--color-paper)] py-24 sm:py-32">
+        <div className="wrap">
+          <div className="mb-14 max-w-2xl">
             <Reveal>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-                Why Helum
-              </p>
-              <h2 className="text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
+              <p className="eyebrow mb-5">Why Helum</p>
+              <h2 className="font-display text-4xl font-semibold text-[var(--color-ink)] sm:text-5xl">
                 Built around real problems
               </h2>
             </Reveal>
           </div>
-          <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {whyHelum.map((item) => (
+          <Stagger className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {whyHelum.map((item, i) => (
               <StaggerItem key={item.title}>
-                <article className="h-full rounded-2xl border border-[#e5e8ef] bg-[#f7f8fa] p-6 transition hover:border-[#e8a317] hover:shadow-md">
-                  <h3 className="mb-3 font-bold text-[#1a1f2e]">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#5a6478]">{item.body}</p>
-                </article>
+                <p className="mb-4 font-display text-sm text-[var(--color-gold)]">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mb-3 font-display text-xl font-semibold text-[var(--color-ink)]">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--color-muted)]">{item.body}</p>
               </StaggerItem>
             ))}
           </Stagger>
-          <div className="mt-10 text-center">
-            <Link href="/why-helum" className="font-semibold text-[#e8a317] hover:underline">
+          <div className="mt-12">
+            <Link href="/why-helum" className="link-underline font-display text-sm font-semibold">
               Why choose Helum →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="bg-[#f7f8fa] py-20 sm:py-28">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-          <div className="mb-12 text-center">
-            <Reveal>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#e8a317]">
-                Our Values
-              </p>
-              <h2 className="text-3xl font-extrabold tracking-tight text-[#1a1f2e] sm:text-4xl">
-                What drives us
-              </h2>
-            </Reveal>
-          </div>
-          <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="bg-white py-24 sm:py-32">
+        <div className="wrap">
+          <Reveal>
+            <p className="eyebrow mb-5">Our values</p>
+            <h2 className="mb-14 font-display text-4xl font-semibold text-[var(--color-ink)]">
+              What drives us
+            </h2>
+          </Reveal>
+          <Stagger className="grid gap-px bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
             {values.map((v) => (
-              <StaggerItem key={v.num}>
-                <article className="rounded-2xl border border-[#e5e8ef] bg-white p-6 transition hover:border-[#e8a317]">
-                  <span className="mb-3 block text-xs font-bold tracking-wider text-[#e8a317]">
+              <StaggerItem key={v.num} className="bg-white">
+                <article className="h-full p-8">
+                  <span className="mb-4 block font-display text-xs tracking-[0.16em] text-[var(--color-gold)]">
                     {v.num}
                   </span>
-                  <h3 className="mb-2 text-lg font-bold text-[#1a1f2e]">{v.title}</h3>
-                  <p className="text-sm text-[#5a6478]">{v.body}</p>
+                  <h3 className="mb-2 font-display text-xl font-semibold text-[var(--color-ink)]">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm text-[var(--color-muted)]">{v.body}</p>
                 </article>
               </StaggerItem>
             ))}
           </Stagger>
-          <div className="mt-10 text-center">
-            <Link href="/values" className="font-semibold text-[#e8a317] hover:underline">
-              Our core values →
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Ambition CTA */}
-      <section className="relative overflow-hidden py-24 text-white">
+      <section className="relative overflow-hidden py-28 text-white">
         <div className="absolute inset-0">
           <Image src={images.opportunity.src} alt="" fill className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-[#0b1220]/80" />
+          <div className="absolute inset-0 bg-[var(--color-ink)]/82" />
         </div>
-        <div className="relative z-10 mx-auto max-w-[720px] px-5 text-center sm:px-6">
+        <div className="wrap relative z-10 max-w-3xl">
           <Reveal>
-            <h2 className="mb-6 text-3xl font-extrabold leading-tight sm:text-5xl">
+            <h2 className="mb-6 font-display text-4xl font-semibold leading-tight sm:text-5xl">
               {investment.ambitionTitle}
             </h2>
-            <p className="mb-10 text-lg text-white/75">{investment.ambition}</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/opportunity"
-                className="rounded-full bg-[#e8a317] px-7 py-3.5 text-sm font-semibold text-[#0b1220] transition hover:bg-[#d4920f]"
-              >
+            <p className="mb-10 text-lg leading-relaxed text-white/70">{investment.ambition}</p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/opportunity" className="btn btn-gold">
                 Explore the opportunity
               </Link>
-              <Link
-                href="/contact"
-                className="rounded-full border-2 border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white"
-              >
+              <Link href="/contact" className="btn btn-ghost">
                 Talk to Helum
               </Link>
             </div>

@@ -41,7 +41,7 @@ export default async function ProductDetailPage({
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto grid max-w-[1200px] items-start gap-12 px-5 sm:px-6 lg:grid-cols-2">
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl">
+            <div className="img-zoom relative overflow-hidden">
               <Image src={img.src} alt={img.alt} width={900} height={700} className="h-auto w-full object-cover" />
             </div>
             <p className="mt-6 leading-relaxed text-[#5a6478]">{cat.intro}</p>
@@ -55,7 +55,7 @@ export default async function ProductDetailPage({
               ← All {cat.title.toLowerCase()}
             </Link>
           </Reveal>
-          <div className="rounded-2xl border border-[#e5e8ef] bg-[#f7f8fa] p-6 sm:p-8">
+          <div className="border border-[var(--color-line)] bg-[var(--color-paper)] p-6 sm:p-8">
             <h2 className="mb-4 text-xl font-bold text-[#1a1f2e]">Enquire about {product.name}</h2>
             <ContactForm />
           </div>

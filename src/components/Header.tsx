@@ -15,10 +15,9 @@ export default function Header() {
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   const pathname = usePathname();
   const reduce = useReducedMotion();
-  const isHome = pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -37,29 +36,27 @@ export default function Header() {
     };
   }, [open]);
 
-  const light = isHome && !scrolled;
-  const text = light ? "text-white" : "text-[#1a1f2e]";
-  const muted = light ? "text-white/70" : "text-[#5a6478]";
-
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
-          scrolled || !isHome ? "header-scrolled" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 h-[80px] transition-colors duration-300 ${
+          scrolled || open ? "header-solid" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-6">
-          <Link href="/" className="flex shrink-0 items-center gap-3 group">
-            <motion.span whileHover={reduce ? undefined : { scale: 1.05 }}>
-              <Logo size={44} />
-            </motion.span>
-            <span className="flex flex-col leading-tight">
-              <span className={`text-[1.05rem] font-extrabold tracking-wide ${text}`}>HELUM</span>
-              <span className={`text-[0.6rem] font-medium tracking-[0.14em] ${muted}`}>LIMITED</span>
+        <div className="wrap flex h-full items-center justify-between gap-6">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <Logo size={42} />
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-[0.95rem] font-bold tracking-[0.18em] text-white">
+                HELUM
+              </span>
+              <span className="mt-1 text-[0.58rem] font-medium tracking-[0.22em] text-white/55">
+                LIMITED
+              </span>
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
+          <nav className="hidden items-center gap-0 lg:flex" aria-label="Main">
             {navGroups.map((group) => {
               const active =
                 pathname === group.href ||
@@ -73,39 +70,35 @@ export default function Header() {
                 >
                   <Link
                     href={group.href}
-                    className={`flex items-center gap-1 rounded-full px-3 py-2 text-[13px] font-medium transition ${
-                      active
-                        ? "text-[#e8a317]"
-                        : light
-                          ? "text-white/90 hover:text-[#e8a317]"
-                          : "text-[#1a1f2e] hover:text-[#e8a317]"
+                    className={`flex items-center gap-1.5 px-3 py-7 text-[0.68rem] font-semibold tracking-[0.14em] uppercase transition-colors ${
+                      active ? "text-[var(--color-gold)]" : "text-white/80 hover:text-white"
                     }`}
                     aria-expanded={openGroup === group.label}
                     aria-haspopup="true"
                   >
                     {group.label}
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden>
-                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" />
+                    <svg width="8" height="8" viewBox="0 0 12 12" fill="none" aria-hidden>
+                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" />
                     </svg>
                   </Link>
                   <AnimatePresence>
                     {openGroup === group.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8 }}
+                        initial={reduce ? false : { opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute left-0 top-full z-50 w-[280px] pt-2"
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-0 top-full z-50 min-w-[260px]"
                       >
-                        <div className="rounded-2xl border border-[#e5e8ef] bg-white p-2 shadow-xl">
+                        <div className="border border-white/10 bg-[var(--color-ink)] py-2 shadow-2xl">
                           {group.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
-                              className={`block rounded-xl px-3 py-2.5 text-sm transition hover:bg-[#f7f8fa] ${
+                              className={`block px-4 py-2.5 text-[0.8rem] tracking-wide transition-colors hover:bg-white/5 hover:text-[var(--color-gold)] ${
                                 pathname === child.href
-                                  ? "font-semibold text-[#e8a317]"
-                                  : "text-[#1a1f2e]"
+                                  ? "text-[var(--color-gold)]"
+                                  : "text-white/80"
                               }`}
                             >
                               {child.label}
@@ -120,35 +113,32 @@ export default function Header() {
             })}
           </nav>
 
-          <Link
-            href="/contact"
-            className="hidden rounded-full bg-[#e8a317] px-5 py-2.5 text-sm font-semibold text-[#0b1220] transition hover:bg-[#d4920f] hover:scale-[1.03] xl:inline-flex"
-          >
-            Contact Us
+          <Link href="/contact" className="btn btn-gold hidden lg:inline-flex">
+            Contact
           </Link>
 
           <button
             type="button"
-            className="relative z-[60] flex h-11 w-11 items-center justify-center xl:hidden"
+            className="relative z-[60] flex h-11 w-11 items-center justify-center lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
           >
-            <div className="relative h-5 w-5">
+            <div className="relative h-4 w-5">
               <span
-                className={`absolute left-0 top-0 h-0.5 w-5 rounded transition-all ${
-                  open || !light ? "bg-[#1a1f2e]" : "bg-white"
-                } ${open ? "top-2 rotate-45" : ""}`}
+                className={`absolute left-0 h-px w-5 bg-white transition-all duration-300 ${
+                  open ? "top-2 rotate-45" : "top-0"
+                }`}
               />
               <span
-                className={`absolute left-0 top-2 h-0.5 w-5 rounded transition-all ${
-                  open || !light ? "bg-[#1a1f2e]" : "bg-white"
-                } ${open ? "opacity-0" : ""}`}
+                className={`absolute left-0 top-2 h-px w-5 bg-white transition-all duration-300 ${
+                  open ? "opacity-0" : ""
+                }`}
               />
               <span
-                className={`absolute left-0 top-4 h-0.5 w-5 rounded transition-all ${
-                  open || !light ? "bg-[#1a1f2e]" : "bg-white"
-                } ${open ? "top-2 -rotate-45" : ""}`}
+                className={`absolute left-0 h-px w-5 bg-white transition-all duration-300 ${
+                  open ? "top-2 -rotate-45" : "top-4"
+                }`}
               />
             </div>
           </button>
@@ -157,59 +147,56 @@ export default function Header() {
 
       <AnimatePresence>
         {open && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-[#0b1220]/50 xl:hidden"
-              onClick={() => setOpen(false)}
-            />
-            <motion.nav
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="fixed right-0 top-0 z-50 h-dvh w-[min(380px,92vw)] overflow-y-auto bg-white px-5 pb-10 pt-24 shadow-2xl xl:hidden"
-            >
-              {navGroups.map((group) => (
-                <div key={group.label} className="border-b border-[#e5e8ef]">
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between py-3.5 text-left text-base font-semibold text-[#1a1f2e]"
-                    onClick={() => setMobileGroup(mobileGroup === group.label ? null : group.label)}
-                    aria-expanded={mobileGroup === group.label}
-                  >
-                    {group.label}
-                    <span className="text-[#e8a317]">{mobileGroup === group.label ? "−" : "+"}</span>
-                  </button>
+          <motion.nav
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 overflow-y-auto bg-[var(--color-ink)] px-6 pb-12 pt-28 lg:hidden"
+            aria-label="Mobile"
+          >
+            {navGroups.map((group) => (
+              <div key={group.label} className="border-b border-white/10">
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between py-4 text-left font-display text-sm font-semibold tracking-[0.12em] uppercase text-white"
+                  onClick={() => setMobileGroup(mobileGroup === group.label ? null : group.label)}
+                  aria-expanded={mobileGroup === group.label}
+                >
+                  {group.label}
+                  <span className="text-[var(--color-gold)]">
+                    {mobileGroup === group.label ? "−" : "+"}
+                  </span>
+                </button>
+                <AnimatePresence>
                   {mobileGroup === group.label && (
-                    <ul className="pb-3 pl-2">
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden pb-3"
+                    >
                       {group.children.map((child) => (
                         <li key={child.href}>
                           <Link
                             href={child.href}
-                            className="block py-2 text-sm text-[#5a6478]"
+                            className="block py-2 text-sm text-white/65"
                             onClick={() => setOpen(false)}
                           >
                             {child.label}
                           </Link>
                         </li>
                       ))}
-                    </ul>
+                    </motion.ul>
                   )}
-                </div>
-              ))}
-              <Link
-                href="/contact"
-                className="mt-6 flex w-full items-center justify-center rounded-full bg-[#e8a317] py-3.5 text-sm font-semibold text-[#0b1220]"
-                onClick={() => setOpen(false)}
-              >
-                Contact Us
-              </Link>
-              <p className="mt-8 text-xs text-[#8b95a8]">{company.tagline}</p>
-            </motion.nav>
-          </>
+                </AnimatePresence>
+              </div>
+            ))}
+            <Link href="/contact" className="btn btn-gold mt-8 w-full" onClick={() => setOpen(false)}>
+              Contact
+            </Link>
+            <p className="mt-8 text-xs tracking-[0.16em] uppercase text-white/40">{company.tagline}</p>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>

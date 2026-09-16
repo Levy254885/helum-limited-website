@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://helumlimited.com"),
@@ -22,19 +28,9 @@ export const metadata: Metadata = {
     title: "HELUM LIMITED | Technology, Energy & Renewable Energy Solutions",
     description:
       "Practical technology and renewable energy solutions for Africa. Engineering the Intelligence of Energy.",
-    images: [
-      {
-        url: "/logo.png",
-        width: 1200,
-        height: 1200,
-        alt: "Helum Limited",
-      },
-    ],
+    images: [{ url: "/logo.png", width: 1200, height: 1200, alt: "Helum Limited" }],
   },
-  icons: {
-    icon: "/logo.png",
-    apple: "/apple-touch-icon.png",
-  },
+  icons: { icon: "/logo.png", apple: "/apple-touch-icon.png" },
   twitter: {
     card: "summary_large_image",
     title: "HELUM LIMITED | Technology, Energy & Renewable Energy Solutions",
@@ -69,14 +65,14 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="bg-white font-sans antialiased">
         <Header />
         {children}
         <Footer />

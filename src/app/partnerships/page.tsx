@@ -33,7 +33,7 @@ export default function PartnershipsPage() {
           <Stagger className="grid gap-6 md:grid-cols-2">
             {partners.map((p) => (
               <StaggerItem key={p.slug}>
-                <article className="flex h-full flex-col rounded-2xl border border-[#e5e8ef] bg-[#f7f8fa] p-7">
+                <article className="flex h-full flex-col border border-[var(--color-line)] bg-[var(--color-paper)] p-7">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#e8a317]">
                     {p.role}
                   </p>
