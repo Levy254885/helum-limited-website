@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat, Great_Vibes } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
-});
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-script",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -70,7 +71,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${greatVibes.variable}`}>
       <head>
         <script
           type="application/ld+json"

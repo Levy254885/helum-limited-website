@@ -16,7 +16,7 @@ export default function PageHero({ eyebrow, title, subtitle, image }: Props) {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative min-h-[68vh] overflow-hidden pt-[80px]">
+    <section className="relative min-h-[68vh] overflow-hidden pt-[84px]">
       {image ? (
         <div className="absolute inset-0">
           <Image

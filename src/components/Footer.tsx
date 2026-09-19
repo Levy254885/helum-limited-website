@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-3">
-              <Logo size={40} />
+              <Logo size={56} />
               <span className="flex flex-col leading-none">
                 <span className="font-display text-sm font-bold tracking-[0.18em] text-white">
                   HELUM

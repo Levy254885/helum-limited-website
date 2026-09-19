@@ -1,177 +1,190 @@
-/** Topic-specific photography — replace with Helum assets when ready */
+/** Helum-owned product and site photography in /public/photos */
+const p = (file: string) => `/photos/${file}`;
+
 export const images = {
   hero: {
-    src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80",
-    alt: "Solar panel array and modern energy infrastructure under clear sky",
+    src: p("school-solar.jpg"),
+    alt: "Solar photovoltaic array on an institutional building in Kenya",
   },
   about: {
-    src: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1600&q=80",
-    alt: "Engineers installing solar panels on a commercial rooftop",
+    src: p("rooftop-install.jpg"),
+    alt: "Helum team installing solar panels on a residential rooftop",
   },
   vision: {
-    src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
-    alt: "Wind turbines and renewable energy landscape at dusk",
+    src: p("school-solar.jpg"),
+    alt: "Solar-powered institution under East African sky",
   },
   values: {
     src: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80",
     alt: "Professional handshake representing partnership and integrity",
   },
   why: {
-    src: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80",
-    alt: "Nairobi skyline representing African market understanding",
+    src: p("battery-room.jpg"),
+    alt: "Installed inverter and lithium battery bank at a Kenyan site",
   },
   approach: {
-    src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
-    alt: "Team reviewing plans and technology solutions",
+    src: p("ess-cabinet.jpg"),
+    alt: "Integrated energy storage cabinet specified as a complete system",
   },
   story: {
-    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1600&q=80",
-    alt: "East African landscape representing Helum's Kenyan foundation",
+    src: p("farm-solar.jpg"),
+    alt: "Ground-mount solar array serving a Kenyan farm and homestead",
   },
   renewable: {
-    src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=80",
-    alt: "Solar photovoltaic panels on a rooftop installation",
+    src: p("panel-array.jpg"),
+    alt: "Solar photovoltaic modules installed in rows",
   },
   solarPv: {
-    src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80",
-    alt: "Close view of a solar PV array generating clean electricity",
+    src: p("panel-array.jpg"),
+    alt: "Close view of a solar PV array",
   },
   battery: {
-    src: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=1600&q=80",
-    alt: "Modern battery energy storage cabinets and power electronics",
+    src: p("battery-room.jpg"),
+    alt: "Wall of lithium battery modules with hybrid inverters",
   },
   backup: {
-    src: "https://images.unsplash.com/photo-1473340887342-3385c4851787?auto=format&fit=crop&w=1600&q=80",
-    alt: "Electrical transmission infrastructure supporting reliable power",
+    src: p("battery-cabinet.jpg"),
+    alt: "All-in-one inverter and battery cabinet for backup power",
   },
   offGrid: {
-    src: "https://images.unsplash.com/photo-1497436072909-60f360e1d4f5?auto=format&fit=crop&w=1600&q=80",
-    alt: "Remote landscape suited to off-grid and decentralized energy",
+    src: p("street-light.jpg"),
+    alt: "Solar street lighting for off-grid and public spaces",
   },
   energyTech: {
-    src: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
-    alt: "High-voltage energy infrastructure and intelligent power systems",
+    src: p("ess-cabinet.jpg"),
+    alt: "Commercial energy storage cabinet with battery modules",
   },
   inverter: {
-    src: "https://images.unsplash.com/photo-1558449028-b53a0a4dcb61?auto=format&fit=crop&w=1600&q=80",
-    alt: "Solar inverter mounted with photovoltaic system",
+    src: p("inverter-wall.jpg"),
+    alt: "Hybrid solar inverter installed on site",
   },
   lithium: {
-    src: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=1600&q=80",
-    alt: "Lithium battery energy storage cabinets",
+    src: p("wall-battery.jpg"),
+    alt: "Wall-mounted lithium battery energy storage unit",
   },
   powerStation: {
-    src: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1600&q=80",
-    alt: "Compact energy storage and charging power station",
+    src: p("power-station-front.jpg"),
+    alt: "Portable solar power station with AC outlets",
+  },
+  powerStationSide: {
+    src: p("power-station-side.jpg"),
+    alt: "Portable power station showing DC input and carry handle",
+  },
+  waterHeater: {
+    src: p("water-heater.jpg"),
+    alt: "Evacuated-tube solar water heater",
   },
   productive: {
-    src: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1600&q=80",
-    alt: "Agricultural fields representing productive use of energy",
+    src: p("farm-solar.jpg"),
+    alt: "Solar array over a productive farm plot",
   },
   partnerships: {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
-    alt: "Collaboration meeting between technology and business partners",
+    src: p("factory.jpg"),
+    alt: "Power-station assembly and partner manufacturing",
   },
   homes: {
-    src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
-    alt: "Residential home with potential for solar and backup power",
+    src: p("rooftop-install.jpg"),
+    alt: "Residential rooftop solar installation in Kenya",
   },
   businesses: {
-    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-    alt: "Modern workplace requiring reliable commercial energy",
+    src: p("ess-cabinet.jpg"),
+    alt: "Commercial battery energy storage system",
   },
   institutions: {
-    src: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1600&q=80",
-    alt: "Institutional campus buildings with sustained energy demand",
+    src: p("school-solar.jpg"),
+    alt: "Institutional building with a rooftop solar array",
   },
   agriculture: {
-    src: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=80",
-    alt: "Farm operations that benefit from productive-use energy",
+    src: p("farm-solar.jpg"),
+    alt: "Agricultural solar installation over crops",
   },
   water: {
-    src: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1600&q=80",
-    alt: "Irrigation system watering crops with pumped water",
+    src: p("pump-install.jpg"),
+    alt: "Solar water-pumping installation at a Kenyan borehole",
   },
   food: {
-    src: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1600&q=80",
-    alt: "Food processing environment that depends on reliable power",
+    src: p("farm-solar.jpg"),
+    alt: "Farm energy supporting food production",
   },
   sme: {
-    src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80",
-    alt: "Small business team working in a productive workspace",
+    src: p("battery-room.jpg"),
+    alt: "Backup power and storage for a working site",
   },
   rural: {
-    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80",
-    alt: "Rural community setting for decentralized energy solutions",
+    src: p("street-light.jpg"),
+    alt: "Solar street light serving a rural community",
   },
   sourcing: {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80",
-    alt: "Engineer inspecting technology equipment for market deployment",
+    src: p("factory.jpg"),
+    alt: "Technology sourcing and power-station production",
   },
   market: {
-    src: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80",
-    alt: "Nairobi city skyline representing Kenyan market access",
+    src: p("school-solar.jpg"),
+    alt: "Deployed solar serving a Kenyan institution",
   },
   opportunity: {
-    src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
-    alt: "Renewable energy infrastructure under open sky",
+    src: p("panel-array.jpg"),
+    alt: "Solar generation infrastructure",
   },
   process: {
-    src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1600&q=80",
-    alt: "Engineers working on energy systems",
+    src: p("rooftop-install.jpg"),
+    alt: "Installation team working on a solar rooftop",
   },
   install: {
-    src: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80",
-    alt: "Technician performing electrical installation and commissioning",
+    src: p("pump-install.jpg"),
+    alt: "Technicians commissioning a solar pumping system",
   },
   maintenance: {
-    src: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=1600&q=80",
-    alt: "Technical maintenance of energy and electrical equipment",
+    src: p("battery-room.jpg"),
+    alt: "Installed inverters and batteries ready for ongoing support",
   },
   contact: {
-    src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
-    alt: "Professional workspace for customer conversations",
+    src: p("rooftop-install.jpg"),
+    alt: "Helum field work — talk to the team about a site",
   },
   faq: {
-    src: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=80",
-    alt: "Desk with notes representing questions and practical answers",
+    src: p("inverter-wall.jpg"),
+    alt: "Installed hybrid inverter",
   },
   technology: {
-    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
-    alt: "Circuit and technology detail representing intelligent energy systems",
+    src: p("ess-cabinet.jpg"),
+    alt: "Integrated energy-storage technology",
   },
   students: {
-    src: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1600&q=80",
-    alt: "Students in a classroom who need reliable lighting to study",
+    src: p("school-solar.jpg"),
+    alt: "School building powered with rooftop solar",
   },
   studyLight: {
-    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80",
-    alt: "Children studying with the help of electric light",
+    src: p("street-light.jpg"),
+    alt: "Solar lighting for public and community spaces",
   },
   homeLight: {
-    src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80",
-    alt: "Home interior with reliable electric lighting in the evening",
+    src: p("rooftop-install.jpg"),
+    alt: "Home solar installation for reliable household power",
   },
   nairobi: {
     src: "https://images.unsplash.com/photo-1611348522141-347294daac38?auto=format&fit=crop&w=1600&q=80",
     alt: "Nairobi at dusk, Helum's Kenyan market base",
   },
-  // aliases used by earlier pages
+  batteryHuayite: {
+    src: p("battery-huayite.jpg"),
+    alt: "Floor-standing pure sine-wave inverter and charger",
+  },
   serviceRenewable: {
-    src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=80",
+    src: p("panel-array.jpg"),
     alt: "Solar PV system installation",
   },
   serviceEnergyTech: {
-    src: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
-    alt: "Advanced energy infrastructure",
+    src: p("ess-cabinet.jpg"),
+    alt: "Advanced energy storage infrastructure",
   },
   serviceProductive: {
-    src: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1600&q=80",
+    src: p("farm-solar.jpg"),
     alt: "Agriculture and productive-use solar applications",
   },
   servicePartnerships: {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
-    alt: "Business collaboration and technology partnerships",
+    src: p("factory.jpg"),
+    alt: "Technology partnerships and product supply",
   },
 } as const;
 

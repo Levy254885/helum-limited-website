@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ContactForm({ dark = false }: { dark?: boolean }) {
+export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -25,60 +25,73 @@ export default function ContactForm({ dark = false }: { dark?: boolean }) {
       setErrorMsg("Please enter a valid email address.");
       return;
     }
+    // Wire to API later: await fetch("/api/enquiry", { method: "POST", body: JSON.stringify(...) })
     await new Promise((r) => setTimeout(r, 700));
     e.currentTarget.reset();
     setStatus("success");
   }
 
-  const label = dark
-    ? "mb-2 block text-sm font-semibold text-white/80"
-    : "mb-2 block text-sm font-semibold text-[#1a1f2e]";
-  const input = dark
-    ? "w-full border border-white/15 bg-[#080b12] px-4 py-3 text-white placeholder:text-white/35 transition focus:border-[var(--color-gold)] focus:outline-none"
-    : "w-full border border-[var(--color-line)] bg-white px-4 py-3 transition focus:border-[var(--color-gold)] focus:outline-none";
+  const input =
+    "w-full border border-[var(--color-line)] bg-white px-4 py-3 transition focus:border-[var(--color-gold)] focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
       <div>
-        <label htmlFor="fullName" className={label}>
+        <label htmlFor="fullName" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
           Full Name *
         </label>
         <input id="fullName" name="fullName" required autoComplete="name" placeholder="Your full name" className={input} />
       </div>
       <div>
-        <label htmlFor="company" className={label}>
+        <label htmlFor="company" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
           Company / Organization
         </label>
         <input id="company" name="company" autoComplete="organization" placeholder="Company or organization" className={input} />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className={label}>
+          <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
             Email *
           </label>
           <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={input} />
         </div>
         <div>
-          <label htmlFor="phone" className={label}>
+          <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
             Phone
           </label>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+254 …" className={input} />
+          <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="0712 345 678" className={input} />
         </div>
       </div>
       <div>
-        <label htmlFor="message" className={label}>
+        <label htmlFor="solution" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+          Solution Required
+        </label>
+        <select id="solution" name="solution" className={input}>
+          <option value="">Select an option</option>
+          <option value="inverters">Inverters</option>
+          <option value="lithium">Lithium batteries</option>
+          <option value="power-stations">Power stations</option>
+          <option value="water-heaters">Solar water heaters</option>
+          <option value="panels">Solar panels</option>
+          <option value="pumps">Solar water pumps</option>
+          <option value="productive">Productive-Use / Agriculture</option>
+          <option value="partnership">Technology Partnership</option>
+          <option value="investment">Investment / Growth</option>
+          <option value="consultation">Request a Consultation</option>
+          <option value="general">General Enquiry</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor="message" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
           Message *
         </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          required
-          placeholder="Tell us about your energy or technology needs..."
-          className={input}
-        />
+        <textarea id="message" name="message" rows={4} required placeholder="Tell us about your energy or technology needs..." className={input} />
       </div>
-      <button type="submit" disabled={status === "loading"} className="btn btn-gold w-full disabled:opacity-70">
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="btn btn-gold w-full disabled:opacity-70"
+      >
         {status === "loading" ? "Sending…" : "Send Enquiry"}
       </button>
 

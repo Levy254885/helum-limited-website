@@ -2,242 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect, useCallback } from "react";
 import { images } from "@/lib/images";
-import { about, company, services, values, vision, mission, whyHelum, investment } from "@/lib/content";
+import { about, services, values, vision, mission, whyHelum, investment } from "@/lib/content";
 import { productCategories } from "@/lib/products";
 import { partners } from "@/lib/partners";
 import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
-import { heroItem, heroTitle, staggerContainer } from "@/lib/motion";
-
-const HERO_SLIDES = [
-  {
-    id: 0,
-    eyebrow: company.tagline,
-    title: (
-      <>
-        Engineering the{" "}
-        <span className="text-[var(--color-gold)]">Intelligence of Energy</span>
-      </>
-    ),
-    body: "Helum connects innovative technology, reliable energy and productive solutions to help businesses, households, institutions and enterprises overcome real-world energy challenges.",
-    image: images.battery,
-    ctaPrimary: { href: "/services", label: "Explore solutions" },
-    ctaSecondary: { href: "/contact", label: "Talk to Helum" },
-  },
-  {
-    id: 1,
-    eyebrow: "RENEWABLE ENERGY · STORAGE · PRODUCTIVE USE",
-    title: (
-      <>
-        Reliable Power.{" "}
-        <span className="text-[var(--color-gold)]">Every Day.</span>
-      </>
-    ),
-    body: "Solar, battery storage and backup systems designed for African homes, businesses and institutions — practical solutions that keep the lights on and operations running.",
-    image: images.energyTech,
-    ctaPrimary: { href: "/products", label: "View products" },
-    ctaSecondary: { href: "/services/renewable-energy", label: "Renewable energy" },
-  },
-  {
-    id: 2,
-    eyebrow: "TECHNOLOGY · ENERGY · POSSIBILITY",
-    title: (
-      <>
-        Built for{" "}
-        <span className="text-[var(--color-gold)]">African Markets</span>
-      </>
-    ),
-    body: "From solar PV and lithium storage to productive-use technology, Helum brings quality solutions adapted to local conditions and real customer needs across Kenya and beyond.",
-    image: images.renewable,
-    ctaPrimary: { href: "/solutions", label: "Explore solutions" },
-    ctaSecondary: { href: "/opportunity", label: "The opportunity" },
-  },
-];
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function HomePage() {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const reduce = useReducedMotion();
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const slide = HERO_SLIDES[active];
-
-  const next = useCallback(() => {
-    setActive((i) => (i + 1) % HERO_SLIDES.length);
-  }, []);
-  const prev = useCallback(() => {
-    setActive((i) => (i - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  }, []);
-
-  useEffect(() => {
-    if (reduce || paused) return;
-    const t = setInterval(next, 7000);
-    return () => clearInterval(t);
-  }, [next, paused, reduce]);
-
   return (
     <main>
-      <section
-        ref={heroRef}
-        className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-[var(--color-ink)]"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
-        {/* Background image with restrained parallax */}
-        <div className="absolute inset-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={reduce ? false : { opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0"
-            >
-              <motion.div style={reduce ? undefined : { y }} className="absolute inset-0">
-                <Image
-                  src={slide.image.src}
-                  alt={slide.image.alt}
-                  fill
-                  priority={slide.id === 0}
-                  className="object-cover object-center"
-                  sizes="100vw"
-                />
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
-          {/* Layered overlays for editorial contrast — matching reference depth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-ink)] via-[var(--color-ink)]/75 to-[var(--color-ink)]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/85 via-transparent to-[var(--color-ink)]/40" />
-          <div className="grain absolute inset-0 opacity-60" />
-        </div>
-
-        {/* Content — left-aligned, generous negative space, reference proportions */}
-        <div className="relative z-10 flex flex-1 flex-col justify-end pb-28 pt-[calc(var(--header-h)+3rem)] sm:pb-32 sm:pt-[calc(var(--header-h)+4.5rem)] lg:justify-center lg:pb-36">
-          <div className="wrap">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slide.id}
-                variants={reduce ? undefined : staggerContainer}
-                initial={reduce ? undefined : "hidden"}
-                animate={reduce ? undefined : "visible"}
-                exit={reduce ? undefined : { opacity: 0, y: -12, transition: { duration: 0.25 } }}
-                className="max-w-[38rem]"
-              >
-                <motion.p
-                  variants={reduce ? undefined : heroItem}
-                  className="mb-5 text-[0.68rem] font-semibold tracking-[0.22em] text-[var(--color-gold)] uppercase sm:mb-6"
-                >
-                  {slide.eyebrow}
-                </motion.p>
-                <motion.h1
-                  variants={reduce ? undefined : heroTitle}
-                  className="font-display text-[2.6rem] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-5xl md:text-[3.4rem] lg:text-[4.15rem]"
-                >
-                  {slide.title}
-                </motion.h1>
-                <motion.p
-                  variants={reduce ? undefined : heroItem}
-                  className="mt-5 max-w-[32rem] text-[1.05rem] leading-[1.65] text-white/70 sm:mt-6 sm:text-lg"
-                >
-                  {slide.body}
-                </motion.p>
-                <motion.div
-                  variants={reduce ? undefined : heroItem}
-                  className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4"
-                >
-                  <Link href={slide.ctaPrimary.href} className="btn btn-gold">
-                    {slide.ctaPrimary.label}
-                  </Link>
-                  <Link href={slide.ctaSecondary.href} className="btn btn-ghost">
-                    {slide.ctaSecondary.label}
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* Scroll / carousel indicator — positioned & styled like the reference */}
-        <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center sm:bottom-8">
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="Previous slide"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-
-            <div className="flex items-center gap-2 px-1">
-              {HERO_SLIDES.map((s, i) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  aria-current={i === active}
-                  className="relative h-1.5 overflow-hidden rounded-full transition-all duration-300"
-                  style={{ width: i === active ? 28 : 8 }}
-                >
-                  <span
-                    className={`absolute inset-0 rounded-full ${
-                      i === active ? "bg-[var(--color-gold)]" : "bg-white/35"
-                    }`}
-                  />
-                  {i === active && !reduce && !paused && (
-                    <motion.span
-                      className="absolute inset-y-0 left-0 rounded-full bg-[var(--color-gold)]"
-                      initial={{ width: "0%" }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 7, ease: "linear" }}
-                      key={`progress-${active}`}
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setPaused((p) => !p)}
-              aria-label={paused ? "Play slideshow" : "Pause slideshow"}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white"
-            >
-              {paused ? (
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              ) : (
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                </svg>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={next}
-              aria-label="Next slide"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
-
+      <HeroCarousel />
       <section className="bg-white py-24 sm:py-32">
         <div className="wrap grid items-center gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
@@ -391,8 +166,8 @@ export default function HomePage() {
               <p className="eyebrow mb-5">Products</p>
               <h2 className="font-display text-4xl font-semibold sm:text-5xl">What we supply</h2>
               <p className="mt-5 leading-relaxed text-white/60">
-                Inverters, lithium batteries, power stations, solar panels and solar water pumps —
-                specified as part of a designed system.
+                Inverters, lithium batteries, power stations, solar panels, solar water heaters and
+                solar water pumps — specified as part of a designed system.
               </p>
             </Reveal>
           </div>

@@ -9,19 +9,11 @@ import { navGroups } from "@/lib/nav";
 import Logo from "./Logo";
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   const pathname = usePathname();
   const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -38,19 +30,15 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 h-[80px] transition-colors duration-300 ${
-          scrolled || open ? "header-solid" : "bg-transparent"
-        }`}
-      >
+      <header className="header-solid fixed top-0 left-0 right-0 z-50 h-[84px]">
         <div className="wrap flex h-full items-center justify-between gap-6">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <Logo size={42} />
+            <Logo size={72} />
             <span className="flex flex-col leading-none">
-              <span className="font-display text-[0.95rem] font-bold tracking-[0.18em] text-white">
+              <span className="font-display text-[1.2rem] font-extrabold tracking-[0.2em] text-white">
                 HELUM
               </span>
-              <span className="mt-1 text-[0.58rem] font-medium tracking-[0.22em] text-white/55">
+              <span className="mt-1.5 text-[0.62rem] font-medium tracking-[0.28em] text-white/60">
                 LIMITED
               </span>
             </span>
