@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import PageHero from "@/components/PageHero";
 import { PageTransition, Reveal } from "@/components/Motion";
 import ContactForm from "@/components/ContactForm";
-import { Related, Points } from "@/components/sections";
 import { allProducts, productBySlug, productCategories } from "@/lib/products";
 import { images } from "@/lib/images";
 
@@ -37,33 +35,106 @@ export default async function ProductDetailPage({
 
   return (
     <PageTransition>
-      <PageHero eyebrow={cat.title} title={product.name} subtitle={product.blurb} image={img} />
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto grid max-w-[1200px] items-start gap-12 px-5 sm:px-6 lg:grid-cols-2">
-          <Reveal>
-            <div className="img-zoom relative overflow-hidden bg-[var(--color-paper)]">
-              <Image src={img.src} alt={img.alt} width={900} height={700} className="h-auto w-full object-contain" />
-            </div>
-            <p className="mt-6 leading-relaxed text-[#5a6478]">{cat.intro}</p>
-            <h2 className="mt-8 mb-3 text-xl font-bold text-[#1a1f2e]">Typical uses</h2>
-            <Points items={product.uses} />
-            <p className="mt-6 text-sm text-[#5a6478]">
-              Helum sizes this product family as part of a designed solution. Enquire and we will
-              specify from partner ranges that fit your site.
-            </p>
-            <Link href={`/products/${cat.slug}`} className="mt-6 inline-flex font-semibold text-[#e8a317]">
-              ← All {cat.title.toLowerCase()}
-            </Link>
-          </Reveal>
-          <div className="border border-[var(--color-line)] bg-[var(--color-paper)] p-6 sm:p-8">
-            <h2 className="mb-4 text-xl font-bold text-[#1a1f2e]">Enquire about {product.name}</h2>
-            <ContactForm />
+      <div className="min-h-screen bg-[#080b12] text-white">
+        <section className="border-b border-white/8 pt-[calc(var(--header-h)+2.5rem)] pb-12">
+          <div className="wrap grid items-center gap-10 lg:grid-cols-2">
+            <Reveal>
+              <p className="mb-3 text-[0.68rem] font-semibold tracking-[0.22em] text-[var(--color-gold)] uppercase">
+                {cat.title}
+              </p>
+              {product.headline && (
+                <p className="mb-3 font-display text-[0.75rem] font-bold tracking-[0.14em] text-[var(--color-gold)] uppercase">
+                  {product.headline}
+                </p>
+              )}
+              <h1 className="font-display text-3xl font-semibold tracking-[-0.03em] sm:text-4xl lg:text-5xl">
+                {product.name}
+              </h1>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-white/60">{product.blurb}</p>
+
+              {product.specs && product.specs.length > 0 && (
+                <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                  {product.specs.map((s) => (
+                    <div key={s.label}>
+                      <p className="text-[0.62rem] tracking-wide text-white/40 uppercase">{s.label}</p>
+                      <p className="mt-1 text-sm font-medium text-white/90">{s.value}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn btn-gold">
+                  Enquire
+                </Link>
+                <Link
+                  href={`/products/${cat.slug}`}
+                  className="inline-flex h-12 items-center border border-white/25 px-5 font-display text-[0.7rem] font-semibold tracking-[0.12em] text-white uppercase transition-colors hover:border-white"
+                >
+                  All {cat.title}
+                </Link>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <div className="relative aspect-[4/3] overflow-hidden border border-white/8 bg-[#0d121c]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,163,23,0.1)_0%,transparent_65%)]" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-contain p-10"
+                  sizes="(max-width:1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </Reveal>
           </div>
-        </div>
-      </section>
-      <Related
-        links={productCategories.map((c) => ({ href: `/products/${c.slug}`, label: c.title }))}
-      />
+        </section>
+
+        <section className="py-16 sm:py-20">
+          <div className="wrap grid gap-12 lg:grid-cols-2">
+            <Reveal>
+              <h2 className="mb-4 font-display text-xl font-semibold">About this product family</h2>
+              <p className="leading-relaxed text-white/60">{cat.intro}</p>
+              <h3 className="mt-10 mb-4 font-display text-lg font-semibold">Typical uses</h3>
+              <ul className="space-y-2">
+                {product.uses.map((u) => (
+                  <li key={u} className="flex items-start gap-3 text-sm text-white/70">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-gold)]" />
+                    {u}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 text-sm text-white/45">
+                Helum sizes this product family as part of a designed solution. Enquire and we will
+                specify from partner ranges that fit your site.
+              </p>
+            </Reveal>
+
+            <div className="border border-white/10 bg-[#0d121c] p-6 sm:p-8">
+              <h2 className="mb-4 font-display text-xl font-semibold text-white">
+                Enquire about {product.name}
+              </h2>
+              <ContactForm dark />
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-white/8 py-10">
+          <div className="wrap flex flex-wrap justify-center gap-6">
+            {productCategories.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/products/${c.slug}`}
+                className="text-sm text-white/45 transition-colors hover:text-[var(--color-gold)]"
+              >
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
     </PageTransition>
   );
 }

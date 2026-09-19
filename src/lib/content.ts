@@ -13,25 +13,25 @@ export const company = {
     city: "Nairobi, Kenya",
   },
   footerNote:
-    "Provision of integrated renewable energy solutions, specializing in the design, supply, installation, commissioning, and maintenance of solar photovoltaic (PV) systems and related energy technologies.",
+    "Design, supply, installation, commissioning and maintenance of solar PV systems and related energy technologies.",
 };
 
 export const about = {
   lead:
-    "Helum Limited is a Kenyan technology and renewable-energy company focused on developing, sourcing and delivering innovative solutions that address real-world energy and productivity challenges.",
+    "Helum Limited is a Kenyan company that develops, sources and delivers technology and renewable energy solutions for homes, businesses, institutions and farms.",
   belief:
-    "We believe the future of Africa will be shaped by companies that can connect technology, reliable energy, business opportunity and customer value. Helum exists to be one of those companies.",
+    "Africa's future will be shaped by companies that link technology, reliable power and real commercial value. Helum is built to be one of those companies.",
   approach:
-    "Our approach combines local market knowledge with strategic international partnerships and access to innovative technologies, enabling us to identify solutions that can be adapted to the needs of Kenyan businesses, households, institutions, agriculture and emerging enterprises.",
+    "We combine knowledge of the Kenyan market with international technology partners so solutions fit local conditions: grid quality, load profiles, climate and cost.",
   beyond:
-    "Rather than simply selling products, Helum seeks to build solutions around the customer's problem—from energy access and power reliability to productive use of technology and improved business efficiency.",
+    "We do not only sell equipment. We design around the problem: power that stays on, water that can be pumped, and systems that pay for themselves through use.",
 };
 
 export const vision =
-  "To become a leading African technology and energy solutions company, transforming how people and businesses access, use and benefit from technology and sustainable energy.";
+  "To be a leading African technology and energy company, changing how people and businesses get and use reliable power.";
 
 export const mission =
-  "To connect innovative technology, reliable energy and entrepreneurial opportunity to create practical solutions that improve lives, strengthen businesses and accelerate sustainable development.";
+  "To connect technology, reliable energy and opportunity into practical solutions that improve lives, strengthen businesses and support lasting development.";
 
 export const services = [
   {
@@ -39,26 +39,25 @@ export const services = [
     num: "01",
     title: "Renewable Energy Solutions",
     short:
-      "Solar and clean-energy solutions for residential, commercial, institutional and productive-use applications.",
-    body: "Helum develops and delivers solar and other clean-energy solutions for residential, commercial, institutional and productive-use applications. Our focus includes solar power systems, battery energy storage, backup power solutions, solar-powered productive equipment, energy solutions for businesses and institutions, and off-grid and decentralized energy applications.",
+      "Solar power, battery storage and backup systems for homes, businesses, institutions and farms.",
+    body: "Helum designs and delivers solar and related clean energy systems for residential, commercial, institutional and farm use. This includes solar PV, battery storage, backup power, solar powered equipment, and systems for sites with weak or no grid.",
     points: [
       "Solar power systems",
       "Battery energy storage",
       "Backup power solutions",
-      "Solar-powered productive equipment",
-      "Business and institutional energy solutions",
-      "Off-grid and decentralized applications",
+      "Solar powered productive equipment",
+      "Business and institutional energy systems",
+      "Off grid and decentralized applications",
     ],
   },
   {
     slug: "energy-power-technology",
     num: "02",
     title: "Energy & Power Technology",
-    short:
-      "Technologies that make electricity more reliable, accessible and productive.",
-    body: "We identify and bring to market technologies that make electricity more reliable, accessible and productive. This includes exploring advanced energy-storage technologies, intelligent energy systems and emerging solutions that respond to Africa's evolving energy needs.",
+    short: "Technologies that make electricity more reliable, accessible and useful.",
+    body: "We bring to market technologies that improve how power is stored, managed and used. That includes advanced storage, smarter energy systems and solutions suited to African grid and off grid conditions.",
     points: [
-      "Advanced energy-storage technologies",
+      "Advanced energy storage",
       "Intelligent energy systems",
       "Power reliability solutions",
       "Emerging African energy technologies",
@@ -67,16 +66,15 @@ export const services = [
   {
     slug: "productive-use",
     num: "03",
-    title: "Productive-Use Technology",
-    short:
-      "Energy that creates economic value for agriculture, processing, SMEs and rural enterprises.",
-    body: "Our ambition extends beyond simply powering homes. We want energy to create economic value. Solutions can support agriculture, water pumping, irrigation, small-scale manufacturing, food processing, cold-chain and refrigeration, SMEs and rural enterprises.",
+    title: "Productive Use Technology",
+    short: "Energy that creates value in agriculture, processing, SMEs and rural enterprise.",
+    body: "Power should do more than light a room. Our work supports irrigation, water pumping, small manufacturing, food processing, cold chain, refrigeration and rural businesses that need reliable energy to earn.",
     points: [
       "Agriculture and irrigation",
       "Water pumping",
-      "Small-scale manufacturing",
+      "Small scale manufacturing",
       "Food processing",
-      "Cold-chain and refrigeration",
+      "Cold chain and refrigeration",
       "SMEs and rural enterprises",
     ],
   },
@@ -84,9 +82,8 @@ export const services = [
     slug: "strategic-partnerships",
     num: "04",
     title: "Strategic Technology Partnerships",
-    short:
-      "Relationships with manufacturers, technology companies, investors and development partners.",
-    body: "Helum seeks to build relationships with manufacturers, technology companies, investors and development partners locally and internationally. Through these partnerships, we aim to bring quality technologies into African markets while creating sustainable commercial opportunities.",
+    short: "Relationships with manufacturers, technology companies, investors and development partners.",
+    body: "Helum works with manufacturers, technology firms, investors and development partners in Kenya and abroad. Through these relationships we bring quality equipment into African markets and build lasting commercial routes.",
     points: [
       "Manufacturer partnerships",
       "Technology companies",
@@ -99,120 +96,60 @@ export const services = [
 export const whyHelum = [
   {
     title: "We understand the African market",
-    body: "Technology only creates value when it solves a real problem. Helum focuses on understanding local customer needs and adapting solutions accordingly.",
+    body: "Technology only matters when it solves a real problem. Helum starts with local needs and adapts solutions to how power is actually used here.",
   },
   {
-    title: "Technology with commercial purpose",
-    body: "We are not driven by technology for its own sake. Every solution must answer an important question: What value does this create for the customer?",
+    title: "Technology with a commercial purpose",
+    body: "We do not chase technology for its own sake. Every solution must answer a simple question: what value does this create for the customer?",
   },
   {
-    title: "Local insight + global technology",
-    body: "Our strategy is to combine Kenyan market intelligence with international technology and manufacturing relationships, creating a bridge between innovative technology providers and African markets.",
+    title: "Local insight and global technology",
+    body: "We pair Kenyan market knowledge with international manufacturing and technology partners, so good equipment reaches the right sites.",
   },
   {
     title: "Beyond selling products",
-    body: "Our ambition is to build relationships rather than transactions. We want customers to see Helum as a solutions partner—from identifying a challenge through deployment, support and future upgrades.",
+    body: "We aim to be a solutions partner: from defining the problem through design, supply, installation and ongoing support.",
   },
   {
     title: "Built for scale",
-    body: "Helum is being developed with a long-term view: establishing a strong Kenyan foundation and eventually expanding into selected African markets.",
+    body: "Helum is building a strong base in Kenya first, with a clear path to selected African markets over time.",
   },
 ] as const;
 
 export const values = [
-  {
-    num: "01",
-    title: "Innovation",
-    body: "We continuously look for better ways of solving problems.",
-  },
-  {
-    num: "02",
-    title: "Integrity",
-    body: "We believe sustainable businesses are built on trust and accountability.",
-  },
-  {
-    num: "03",
-    title: "Customer Value",
-    body: "We measure success by the value our solutions create for customers.",
-  },
-  {
-    num: "04",
-    title: "Partnership",
-    body: "We believe great businesses are built through strong relationships.",
-  },
-  {
-    num: "05",
-    title: "Excellence",
-    body: "We pursue quality in our technology, execution and customer experience.",
-  },
-  {
-    num: "06",
-    title: "Impact",
-    body: "Commercial success should go hand in hand with positive social and economic impact.",
-  },
+  { num: "01", title: "Innovation", body: "We keep looking for better ways to solve energy and productivity problems." },
+  { num: "02", title: "Integrity", body: "Sustainable businesses are built on trust and accountability." },
+  { num: "03", title: "Customer value", body: "We measure success by the value our solutions create for the customer." },
+  { num: "04", title: "Partnership", body: "Strong relationships with customers, suppliers and partners sit at the centre of our work." },
+  { num: "05", title: "Excellence", body: "We pursue quality in technology, delivery and customer experience." },
+  { num: "06", title: "Impact", body: "Commercial success should go together with positive social and economic outcomes." },
 ] as const;
 
 export const processSteps = [
-  {
-    num: "01",
-    title: "Understand",
-    body: "Understand the customer's needs, environment and challenges.",
-  },
-  {
-    num: "02",
-    title: "Assess",
-    body: "Assess energy requirements, operating conditions and opportunities for improvement.",
-  },
-  {
-    num: "03",
-    title: "Design",
-    body: "Develop a technology and energy solution suited to the customer's requirements.",
-  },
-  {
-    num: "04",
-    title: "Deliver",
-    body: "Source, supply, install, commission and implement the solution.",
-  },
-  {
-    num: "05",
-    title: "Support",
-    body: "Provide maintenance, support and long-term solution optimization.",
-  },
+  { num: "01", title: "Understand", body: "Understand the customer's needs, site and constraints." },
+  { num: "02", title: "Assess", body: "Assess energy demand, operating conditions and where improvement is possible." },
+  { num: "03", title: "Design", body: "Design a technology and energy solution that fits the requirement." },
+  { num: "04", title: "Deliver", body: "Source, supply, install and commission the system." },
+  { num: "05", title: "Support", body: "Provide maintenance, support and ongoing optimisation." },
 ] as const;
 
 export const markets = [
-  {
-    slug: "homes",
-    title: "Homes",
-    body: "Reliable energy and backup solutions for households.",
-  },
-  {
-    slug: "businesses",
-    title: "Businesses",
-    body: "Energy solutions designed to improve reliability, efficiency and productivity.",
-  },
-  {
-    slug: "institutions",
-    title: "Institutions",
-    body: "Practical energy solutions for institutions and organizations.",
-  },
-  {
-    slug: "agriculture",
-    title: "Agriculture & Rural Enterprises",
-    body: "Productive-use technologies supporting agriculture, water, processing and rural businesses.",
-  },
+  { slug: "homes", title: "Homes", body: "Reliable energy and backup for households." },
+  { slug: "businesses", title: "Businesses", body: "Energy systems that improve reliability, efficiency and output." },
+  { slug: "institutions", title: "Institutions", body: "Practical energy solutions for schools, clinics and organisations." },
+  { slug: "agriculture", title: "Agriculture & Rural Enterprises", body: "Power for irrigation, water, processing and rural businesses." },
 ] as const;
 
 export const investment = {
   intro:
-    "Helum Limited is designed to participate in one of Africa's important growth opportunities: the convergence of energy, technology and economic development.",
+    "Helum is built around one of Africa's clearest growth areas: the meeting of energy, technology and economic development.",
   opportunity:
-    "Our long-term opportunity lies in building a company capable of identifying, sourcing, adapting, deploying and scaling innovative technologies for African markets.",
+    "Our opportunity is to build a company that can identify, source, adapt and deploy useful technologies for African markets at scale.",
   platform:
-    "The opportunity is not limited to selling solar panels or batteries. It is about building an integrated technology and energy platform capable of responding to changing customer and market needs.",
+    "This is not only about selling solar panels or batteries. It is about a platform that can respond as customer and market needs change.",
   ambitionTitle: "Reliable Energy. Smart Technology. Real Economic Impact.",
   ambition:
-    "We envision Helum becoming a recognized African brand associated with practical technology and energy solutions. From powering a home, to enabling a farm, supporting an SME, improving productivity or helping an institution reduce its energy challenges, Helum's goal is to make technology work harder for people and businesses.",
+    "We want Helum to be known across Africa for practical technology and energy solutions: powering a home, running a farm, supporting an SME, or helping an institution cut energy risk. Technology should work harder for people and businesses.",
 };
 
 export const nav = [

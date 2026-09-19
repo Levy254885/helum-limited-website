@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import PageHero from "@/components/PageHero";
+import Link from "next/link";
 import { PageTransition, Reveal, Stagger } from "@/components/Motion";
 import { ProductCard } from "@/components/ProductCard";
-import { DarkBand, Related } from "@/components/sections";
 import { categoryBySlug, productCategories } from "@/lib/products";
-import { images } from "@/lib/images";
 
 export function generateStaticParams() {
   return productCategories.map((c) => ({ category: c.slug }));
@@ -33,37 +31,72 @@ export default async function CategoryPage({
 
   return (
     <PageTransition>
-      <PageHero eyebrow="Products" title={cat.title} subtitle={cat.short} image={images[cat.image]} />
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-          <Reveal>
-            <p className="mb-12 max-w-2xl text-lg leading-relaxed text-[#5a6478]">{cat.intro}</p>
-          </Reveal>
-          <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {cat.products.map((p) => (
-              <ProductCard
-                key={p.slug}
-                href={`/products/${cat.slug}/${p.slug}`}
-                name={p.name}
-                blurb={p.blurb}
-                image={p.image}
-              />
-            ))}
-          </Stagger>
-        </div>
-      </section>
-      <DarkBand
-        title={`Enquire about ${cat.title.toLowerCase()}`}
-        body="Tell Helum about the site, the load and the outcome you need. We will advise on the right product family."
-        href="/contact"
-        label="Send enquiry"
-      />
-      <Related
-        links={productCategories
-          .filter((c) => c.slug !== cat.slug)
-          .slice(0, 3)
-          .map((c) => ({ href: `/products/${c.slug}`, label: c.title }))}
-      />
+      <div className="min-h-screen bg-[#080b12] text-white">
+        <section className="border-b border-white/8 pt-[calc(var(--header-h)+2.5rem)] pb-10">
+          <div className="wrap">
+            <Reveal>
+              <p className="mb-3 text-[0.68rem] font-semibold tracking-[0.22em] text-[var(--color-gold)] uppercase">
+                Products / {cat.title}
+              </p>
+              <h1 className="font-display text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
+                {cat.title}
+              </h1>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
+                {cat.intro}
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="py-14 sm:py-20">
+          <div className="wrap">
+            <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {cat.products.map((p) => (
+                <ProductCard
+                  key={p.slug}
+                  href={`/products/${cat.slug}/${p.slug}`}
+                  name={p.name}
+                  headline={p.headline}
+                  blurb={p.blurb}
+                  specs={p.specs}
+                  image={p.image}
+                />
+              ))}
+            </Stagger>
+          </div>
+        </section>
+
+        <section className="border-t border-white/8 bg-[#0d121c] py-16">
+          <div className="wrap text-center">
+            <h2 className="font-display text-2xl font-semibold">
+              Enquire about {cat.title.toLowerCase()}
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-white/55">
+              Tell Helum about the site, the load and the outcome you need. We will advise on the
+              right product family.
+            </p>
+            <Link href="/contact" className="btn btn-gold mt-8 inline-flex">
+              Send enquiry
+            </Link>
+          </div>
+        </section>
+
+        <section className="border-t border-white/8 py-10">
+          <div className="wrap flex flex-wrap justify-center gap-6">
+            {productCategories
+              .filter((c) => c.slug !== cat.slug)
+              .map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/products/${c.slug}`}
+                  className="text-sm text-white/45 transition-colors hover:text-[var(--color-gold)]"
+                >
+                  {c.title}
+                </Link>
+              ))}
+          </div>
+        </section>
+      </div>
     </PageTransition>
   );
 }
