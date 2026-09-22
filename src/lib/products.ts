@@ -9,6 +9,7 @@ export type Product = {
   specs: { label: string; value: string }[];
   uses: string[];
   image: ImageKey;
+  gallery?: ImageKey[];
 };
 
 export type ProductCategory = {
@@ -27,8 +28,23 @@ export const productCategories: ProductCategory[] = [
     short: "Hybrid, off grid and three phase inverters for homes, businesses and institutions.",
     intro:
       "Helum supplies solar and hybrid inverters as part of complete systems. We match the inverter to load, grid conditions and storage, working with partners including SVC Energy and Deye.",
-    image: "inverter",
+    image: "inverterStudio",
     products: [
+      {
+        slug: "all-in-one-inverter-battery",
+        name: "All-in-One Inverter & Battery",
+        category: "inverters",
+        headline: "Inverter and storage in one cabinet",
+        blurb:
+          "An integrated inverter and lithium battery system for homes and small businesses. One unit handles solar charge, backup and daily use — specified as part of a Helum solution, supplied with SVC Energy.",
+        specs: [
+          { label: "Type", value: "All-in-one ESS" },
+          { label: "Use", value: "Homes & SMEs" },
+          { label: "Partners", value: "SVC Energy" },
+        ],
+        uses: ["Household backup", "Solar self use", "Compact sites that need inverter and battery together"],
+        image: "allInOneEss",
+      },
       {
         slug: "hybrid-inverters",
         name: "Hybrid Inverters",
@@ -42,7 +58,8 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Deye" },
         ],
         uses: ["Homes and small businesses", "Backup with solar self use", "Systems that can grow over time"],
-        image: "inverter",
+        image: "inverterStudio",
+        gallery: ["inverterStudio", "inverterFront", "inverterAngle", "inverterRear"],
       },
       {
         slug: "off-grid-inverters",

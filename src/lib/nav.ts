@@ -34,6 +34,7 @@ export const navGroups: NavGroup[] = [
     children: [
       { href: "/products", label: "All Products" },
       { href: "/products/inverters", label: "Inverters" },
+      { href: "/products/inverters/all-in-one-inverter-battery", label: "All-in-One Inverter & Battery" },
       { href: "/products/lithium-batteries", label: "Lithium Batteries" },
       { href: "/products/power-stations", label: "Power Stations" },
       { href: "/products/solar-panels", label: "Solar Panels" },
@@ -104,6 +105,8 @@ export const allRoutes = [
   "/services/strategic-partnerships",
   "/products",
   "/products/inverters",
+  "/products/inverters/all-in-one-inverter-battery",
+  "/products/inverters/hybrid-inverters",
   "/products/lithium-batteries",
   "/products/power-stations",
   "/products/solar-panels",

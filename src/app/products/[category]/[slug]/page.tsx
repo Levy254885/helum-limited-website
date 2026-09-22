@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { PageTransition, Reveal } from "@/components/Motion";
 import ContactForm from "@/components/ContactForm";
+import ProductGallery from "@/components/ProductGallery";
 import { allProducts, productBySlug, productCategories } from "@/lib/products";
-import { images } from "@/lib/images";
 
 export function generateStaticParams() {
   return allProducts.map((p) => ({ category: p.category, slug: p.slug }));
@@ -31,7 +30,6 @@ export default async function ProductDetailPage({
   const found = productBySlug(slug);
   if (!found || found.category.slug !== category) notFound();
   const { product, category: cat } = found;
-  const img = images[product.image];
 
   return (
     <PageTransition>
@@ -77,17 +75,7 @@ export default async function ProductDetailPage({
             </Reveal>
 
             <Reveal delay={0.08}>
-              <div className="relative aspect-[4/3] overflow-hidden border border-white/8 bg-[#0d121c]">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,163,23,0.1)_0%,transparent_65%)]" />
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-contain p-10"
-                  sizes="(max-width:1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+              <ProductGallery image={product.image} gallery={product.gallery} />
             </Reveal>
           </div>
         </section>

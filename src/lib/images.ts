@@ -55,8 +55,28 @@ export const images = {
     alt: "Commercial energy storage cabinet with battery modules",
   },
   inverter: {
-    src: p("inverter-wall.jpg"),
-    alt: "Hybrid solar inverter installed on site",
+    src: p("inverter-front.jpg"),
+    alt: "Hybrid solar inverter supplied by Helum",
+  },
+  inverterStudio: {
+    src: p("inverter-studio.jpg"),
+    alt: "Hybrid inverter, three-quarter studio view",
+  },
+  inverterFront: {
+    src: p("inverter-front.jpg"),
+    alt: "Hybrid inverter front display and controls",
+  },
+  inverterAngle: {
+    src: p("inverter-angle.jpg"),
+    alt: "Hybrid inverter showing cooling and connection ports",
+  },
+  inverterRear: {
+    src: p("inverter-rear.jpg"),
+    alt: "Inverter rear connections: solar input, battery, AC and communication",
+  },
+  allInOneEss: {
+    src: p("all-in-one-ess.jpg"),
+    alt: "All-in-one inverter and battery energy storage system",
   },
   lithium: {
     src: p("wall-battery.jpg"),
