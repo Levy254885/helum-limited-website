@@ -56,19 +56,19 @@ export default function HomePage() {
           <Stagger className="grid gap-6 md:grid-cols-3">
             {[
               {
-                img: images.students,
-                title: "Students who can study after dark",
-                body: "Reliable lighting is a household and institutional energy problem Helum is built to solve.",
+                img: images.poultry,
+                title: "Farms that stay productive",
+                body: "Reliable power for livestock heat, irrigation and the hours a farm cannot afford to lose.",
               },
               {
-                img: images.homeLight,
-                title: "Homes that stay on",
-                body: "Backup power and solar for essential circuits when the grid drops.",
+                img: images.wallInstall,
+                title: "Homes and sites that stay on",
+                body: "Wall-mounted batteries and hybrid inverters keep essential circuits running when the grid drops.",
               },
               {
-                img: images.water,
-                title: "Farms that can pump water",
-                body: "Solar water pumps turn energy into irrigation and rural water supply.",
+                img: images.farmPlot,
+                title: "Land that generates as it grows",
+                body: "Solar arrays over crops, homesteads and yards — energy designed around productive use.",
               },
             ].map((card) => (
               <StaggerItem key={card.title}>
@@ -196,6 +196,42 @@ export default function HomePage() {
               View all products
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 sm:py-32">
+        <div className="wrap">
+          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+            <Reveal>
+              <p className="eyebrow mb-5">Agriculture</p>
+              <h2 className="max-w-[16ch] font-display text-4xl font-semibold text-[var(--color-ink)] sm:text-5xl">
+                Power that grows food, livestock and income
+              </h2>
+            </Reveal>
+            <Link href="/solutions/agriculture" className="link-underline font-display text-sm font-semibold">
+              Agriculture solutions →
+            </Link>
+          </div>
+          <Stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { img: images.farmPlot, title: "Solar over crops" },
+              { img: images.farmCanopy, title: "Homestead generation" },
+              { img: images.poultry, title: "Poultry heat and light" },
+              { img: images.piglets, title: "Livestock warmth" },
+              { img: images.solarParking, title: "Yard and carport arrays" },
+              { img: images.lodgeArray, title: "Commercial farm sites" },
+            ].map((card) => (
+              <StaggerItem key={card.title}>
+                <Link href="/solutions/agriculture" className="img-zoom group relative block min-h-[240px] overflow-hidden">
+                  <Image src={card.img.src} alt={card.img.alt} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 to-transparent" />
+                  <p className="absolute inset-x-0 bottom-0 p-5 font-display text-lg font-semibold text-white">
+                    {card.title}
+                  </p>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 

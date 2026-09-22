@@ -114,7 +114,8 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Hithium" },
         ],
         uses: ["Household backup", "Solar self use", "Essential circuits"],
-        image: "lithium",
+        image: "wallInstall",
+        gallery: ["wallInstall", "lithium", "plantRoom"],
       },
       {
         slug: "rack-lithium-batteries",
@@ -129,7 +130,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Hithium" },
         ],
         uses: ["Businesses", "Institutions", "Larger backup systems"],
-        image: "battery",
+        image: "plantRoom",
       },
       {
         slug: "residential-battery-modules",
@@ -209,7 +210,7 @@ export const productCategories: ProductCategory[] = [
           { label: "System", value: "Designed with Helum" },
         ],
         uses: ["Homes", "Shops and offices", "Institutions"],
-        image: "homes",
+        image: "lodgeArray",
       },
       {
         slug: "ground-mount-solar-panels",
@@ -224,7 +225,8 @@ export const productCategories: ProductCategory[] = [
           { label: "System", value: "Designed with Helum" },
         ],
         uses: ["Farms", "Businesses", "Institutions"],
-        image: "productive",
+        image: "farmPlot",
+        gallery: ["farmPlot", "farmCanopy", "solarCarport", "solarParking"],
       },
     ],
   },

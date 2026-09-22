@@ -27,20 +27,56 @@ export const images = {
     alt: "Integrated energy storage cabinet specified as a complete system",
   },
   story: {
-    src: p("farm-solar.jpg"),
+    src: p("farm-canopy.jpg"),
     alt: "Ground-mount solar array serving a Kenyan farm and homestead",
   },
   renewable: {
-    src: p("panel-array.jpg"),
+    src: p("lodge-array.jpg"),
     alt: "Solar photovoltaic modules installed in rows",
   },
   solarPv: {
-    src: p("panel-array.jpg"),
-    alt: "Close view of a solar PV array",
+    src: p("plant-room.jpg"),
+    alt: "Solar power plant room with inverters and battery storage",
+  },
+  solarCarport: {
+    src: p("solar-carport.jpg"),
+    alt: "Solar carport canopy with photovoltaic modules",
+  },
+  solarParking: {
+    src: p("solar-parking.jpg"),
+    alt: "Solar parking canopy generating power over a paved yard",
+  },
+  lodgeArray: {
+    src: p("lodge-array.jpg"),
+    alt: "Commercial rooftop solar array",
+  },
+  plantRoom: {
+    src: p("plant-room.jpg"),
+    alt: "Installed hybrid inverters with stacked lithium battery racks",
+  },
+  wallInstall: {
+    src: p("wall-install.jpg"),
+    alt: "Wall-mounted lithium batteries with a hybrid inverter",
+  },
+  poultry: {
+    src: p("poultry.jpg"),
+    alt: "Poultry house using reliable electric heat lamps",
+  },
+  piglets: {
+    src: p("piglets.jpg"),
+    alt: "Piglets under a heat lamp on a Kenyan farm",
+  },
+  farmCanopy: {
+    src: p("farm-canopy.jpg"),
+    alt: "Ground-mount solar array over a homestead vegetable garden",
+  },
+  farmPlot: {
+    src: p("farm-plot.jpg"),
+    alt: "Solar generation serving a smallholder farm and home",
   },
   battery: {
-    src: p("battery-room.jpg"),
-    alt: "Wall of lithium battery modules with hybrid inverters",
+    src: p("plant-room.jpg"),
+    alt: "Stacked lithium battery racks with hybrid inverters",
   },
   backup: {
     src: p("battery-cabinet.jpg"),
@@ -79,8 +115,8 @@ export const images = {
     alt: "All-in-one inverter and battery energy storage system",
   },
   lithium: {
-    src: p("wall-battery.jpg"),
-    alt: "Wall-mounted lithium battery energy storage unit",
+    src: p("wall-install.jpg"),
+    alt: "Wall-mounted lithium batteries and hybrid inverter on site",
   },
   powerStation: {
     src: p("power-station-front.jpg"),
@@ -95,7 +131,7 @@ export const images = {
     alt: "Evacuated-tube solar water heater",
   },
   productive: {
-    src: p("farm-solar.jpg"),
+    src: p("farm-plot.jpg"),
     alt: "Solar array over a productive farm plot",
   },
   partnerships: {
@@ -107,15 +143,15 @@ export const images = {
     alt: "Residential rooftop solar installation in Kenya",
   },
   businesses: {
-    src: p("ess-cabinet.jpg"),
-    alt: "Commercial battery energy storage system",
+    src: p("lodge-array.jpg"),
+    alt: "Commercial solar array serving a business site",
   },
   institutions: {
     src: p("school-solar.jpg"),
     alt: "Institutional building with a rooftop solar array",
   },
   agriculture: {
-    src: p("farm-solar.jpg"),
+    src: p("farm-plot.jpg"),
     alt: "Agricultural solar installation over crops",
   },
   water: {
@@ -123,16 +159,16 @@ export const images = {
     alt: "Solar water-pumping installation at a Kenyan borehole",
   },
   food: {
-    src: p("farm-solar.jpg"),
-    alt: "Farm energy supporting food production",
+    src: p("poultry.jpg"),
+    alt: "Farm energy supporting livestock and food production",
   },
   sme: {
     src: p("battery-room.jpg"),
     alt: "Backup power and storage for a working site",
   },
   rural: {
-    src: p("street-light.jpg"),
-    alt: "Solar street light serving a rural community",
+    src: p("piglets.jpg"),
+    alt: "Rural livestock production that depends on reliable power",
   },
   sourcing: {
     src: p("factory.jpg"),
@@ -143,7 +179,7 @@ export const images = {
     alt: "Deployed solar serving a Kenyan institution",
   },
   opportunity: {
-    src: p("panel-array.jpg"),
+    src: p("lodge-array.jpg"),
     alt: "Solar generation infrastructure",
   },
   process: {
@@ -199,7 +235,7 @@ export const images = {
     alt: "Advanced energy storage infrastructure",
   },
   serviceProductive: {
-    src: p("farm-solar.jpg"),
+    src: p("farm-canopy.jpg"),
     alt: "Agriculture and productive-use solar applications",
   },
   servicePartnerships: {

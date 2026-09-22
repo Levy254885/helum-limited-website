@@ -17,7 +17,7 @@ type Slide = {
   secondaryHref?: string;
   secondaryCta?: string;
   features?: { label: string; sub: string }[];
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; fit?: "contain" | "cover" };
   captions?: string[];
   watermark?: boolean;
 };
@@ -66,19 +66,37 @@ const slides: Slide[] = [
     watermark: true,
   },
   {
+    id: "panels",
+    tone: "light",
+    eyebrow: "Solar panels",
+    title: "Generation.",
+    accent: "Over work and land.",
+    body: "Photovoltaic arrays for rooftops, carports, farms and commercial sites — specified as the generation layer of a Helum system.",
+    href: "/products/solar-panels",
+    cta: "Explore solar panels",
+    image: {
+      src: "/photos/solar-carport.jpg",
+      alt: "Solar carport canopy with photovoltaic modules",
+      fit: "cover",
+    },
+    captions: ["Rooftop", "Carport", "Ground mount"],
+    watermark: true,
+  },
+  {
     id: "storage",
     tone: "light",
-    eyebrow: "Energy storage",
+    eyebrow: "Wall-mounted battery & inverter",
     title: "Integrated Power",
-    accent: "Built to Scale.",
-    body: "Battery energy storage and backup power for sites that need reliable, scalable electricity.",
+    accent: "On the wall.",
+    body: "Wall-mounted lithium batteries with hybrid inverters for homes and businesses that need clean, compact backup.",
     href: "/products/lithium-batteries",
-    cta: "Explore products",
+    cta: "Explore storage",
     image: {
-      src: "/photos/battery-cabinet.jpg",
-      alt: "Floor-standing inverter and battery cabinet",
+      src: "/photos/wall-install.jpg",
+      alt: "Wall-mounted lithium batteries with a hybrid inverter",
+      fit: "cover",
     },
-    captions: ["Wall lithium", "Cabinet storage", "Site battery banks"],
+    captions: ["Wall lithium", "Hybrid inverter"],
     watermark: true,
   },
   {
@@ -130,8 +148,26 @@ const slides: Slide[] = [
     image: {
       src: "/photos/pump-install.jpg",
       alt: "Solar water-pumping installation in Kenya",
+      fit: "cover",
     },
     captions: ["Boreholes", "Irrigation"],
+    watermark: true,
+  },
+  {
+    id: "agriculture",
+    tone: "light",
+    eyebrow: "Agriculture",
+    title: "Energy that",
+    accent: "Grows value.",
+    body: "Solar for farms, livestock heat, irrigation and rural production — power judged by what it grows, warms and pumps.",
+    href: "/solutions/agriculture",
+    cta: "Agriculture solutions",
+    image: {
+      src: "/photos/farm-plot.jpg",
+      alt: "Solar generation over a smallholder farm",
+      fit: "cover",
+    },
+    captions: ["Crops", "Livestock", "Homesteads"],
     watermark: true,
   },
 ];
@@ -244,19 +280,38 @@ export default function HeroCarousel() {
             </div>
 
             {slide.image && (
-              <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
+              <div
+                className={`relative mx-auto w-full max-w-[560px] overflow-hidden lg:max-w-none ${
+                  slide.image.fit === "cover" ? "aspect-[4/5] sm:aspect-[5/6]" : ""
+                }`}
+              >
                 <Image
                   src={slide.image.src}
                   alt={slide.image.alt}
                   width={900}
                   height={1200}
                   priority={index < 2}
-                  className="h-auto w-full object-contain object-bottom"
+                  className={
+                    slide.image.fit === "cover"
+                      ? "h-full w-full object-cover"
+                      : "h-auto w-full object-contain object-bottom"
+                  }
                 />
                 {slide.captions && (
-                  <div className="mt-2 flex justify-center gap-8 text-center">
+                  <div
+                    className={`flex justify-center gap-8 text-center ${
+                      slide.image.fit === "cover"
+                        ? "absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-4 py-4"
+                        : "mt-2"
+                    }`}
+                  >
                     {slide.captions.map((c) => (
-                      <p key={c} className="text-[0.7rem] text-[#6f7278]">
+                      <p
+                        key={c}
+                        className={`text-[0.7rem] ${
+                          slide.image.fit === "cover" ? "text-white/90" : "text-[#6f7278]"
+                        }`}
+                      >
                         {c}
                       </p>
                     ))}
