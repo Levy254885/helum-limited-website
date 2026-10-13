@@ -309,7 +309,7 @@ export default function HeroCarousel() {
                       <p
                         key={c}
                         className={`text-[0.7rem] ${
-                          slide.image.fit === "cover" ? "text-white/90" : "text-[#6f7278]"
+                          slide.image?.fit === "cover" ? "text-white/90" : "text-[#6f7278]" // FIXED
                         }`}
                       >
                         {c}
