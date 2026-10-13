@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ContactForm() {
+export default function ContactForm({ dark = false }: { dark?: boolean }) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -31,39 +31,41 @@ export default function ContactForm() {
     setStatus("success");
   }
 
-  const input =
-    "w-full border border-[var(--color-line)] bg-white px-4 py-3 transition focus:border-[var(--color-gold)] focus:outline-none";
+  const input = dark
+    ? "w-full border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 transition focus:border-[var(--color-gold)] focus:outline-none [&>option]:text-[#1a1f2e]"
+    : "w-full border border-[var(--color-line)] bg-white px-4 py-3 transition focus:border-[var(--color-gold)] focus:outline-none";
+  const label = `mb-2 block text-sm font-semibold ${dark ? "text-white" : "text-[#1a1f2e]"}`;
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
       <div>
-        <label htmlFor="fullName" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+        <label htmlFor="fullName" className={label}>
           Full Name *
         </label>
         <input id="fullName" name="fullName" required autoComplete="name" placeholder="Your full name" className={input} />
       </div>
       <div>
-        <label htmlFor="company" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+        <label htmlFor="company" className={label}>
           Company / Organization
         </label>
         <input id="company" name="company" autoComplete="organization" placeholder="Company or organization" className={input} />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+          <label htmlFor="email" className={label}>
             Email *
           </label>
           <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={input} />
         </div>
         <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+          <label htmlFor="phone" className={label}>
             Phone
           </label>
           <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="0712 345 678" className={input} />
         </div>
       </div>
       <div>
-        <label htmlFor="solution" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+        <label htmlFor="solution" className={label}>
           Solution Required
         </label>
         <select id="solution" name="solution" className={input}>
@@ -82,7 +84,7 @@ export default function ContactForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-semibold text-[#1a1f2e]">
+        <label htmlFor="message" className={label}>
           Message *
         </label>
         <textarea id="message" name="message" rows={4} required placeholder="Tell us about your energy or technology needs..." className={input} />
