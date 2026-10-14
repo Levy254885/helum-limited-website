@@ -192,7 +192,7 @@ export const pages: Record<string, PageSpec> = {
     eyebrow: "Our Approach",
     heroTitle: "Start with the customer's problem",
     heroSubtitle: "Then apply technology that can be adapted to Kenyan businesses, households, institutions and farms.",
-    image: "approach",
+    image: "approachHero",
     layout: "timeline",
     intro: [
       "Our approach combines local market knowledge with strategic international partnerships and access to innovative technologies.",
