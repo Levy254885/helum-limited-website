@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 const story = [
   { ...whyHelum[0], image: images.why },
-  { ...whyHelum[1], image: images.energyTech },
+  { ...whyHelum[1], image: images.whyCommercial },
   { ...whyHelum[2], image: images.partnerships },
   { ...whyHelum[3], image: images.install },
-  { ...whyHelum[4], image: images.opportunity },
+  { ...whyHelum[4], image: images.whyScale },
 ];
 
 export default function WhyHelumPage() {
@@ -28,7 +28,7 @@ export default function WhyHelumPage() {
         eyebrow="Why Helum"
         title="Local insight. Global technology."
         subtitle="Technology only creates value when it solves a real problem. These five pictures are how we tell that story."
-        image={images.why}
+        image={images.whyHero}
       />
 
       {story.map((item, i) => (
