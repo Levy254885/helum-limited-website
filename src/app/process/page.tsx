@@ -12,7 +12,13 @@ export const metadata: Metadata = {
     "Helum works from challenge to solution: understand, assess, design, deliver and support.",
 };
 
-const visuals = [images.approach, images.energyTech, images.sourcing, images.install, images.maintenance];
+const visuals = [
+  images.processUnderstand,
+  images.processAssess,
+  images.processDesign,
+  images.processDeliver,
+  images.processSupport,
+];
 
 export default function ProcessPage() {
   return (
@@ -21,7 +27,7 @@ export default function ProcessPage() {
         eyebrow="Our process"
         title="From challenge to solution"
         subtitle="A structured path from the customer's problem to a maintainable system."
-        image={images.process}
+        image={images.processHero}
       />
 
       <section className="bg-white py-16 sm:py-24">
