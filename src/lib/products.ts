@@ -43,7 +43,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC Energy" },
         ],
         uses: ["Household backup", "Solar self use", "Compact sites that need inverter and battery together"],
-        image: "allInOneEss",
+        image: "productAllInOne",
       },
       {
         slug: "hybrid-inverters",
@@ -58,8 +58,8 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Deye" },
         ],
         uses: ["Homes and small businesses", "Backup with solar self use", "Systems that can grow over time"],
-        image: "inverterStudio",
-        gallery: ["inverterStudio", "inverterFront", "inverterAngle", "inverterRear"],
+        image: "productHybridInverter",
+        gallery: ["productHybridInverter", "inverterFront", "inverterAngle", "inverterRear"],
       },
       {
         slug: "off-grid-inverters",
@@ -114,8 +114,8 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Hithium" },
         ],
         uses: ["Household backup", "Solar self use", "Essential circuits"],
-        image: "wallInstall",
-        gallery: ["wallInstall", "lithium", "plantRoom"],
+        image: "productWallBattery",
+        gallery: ["productWallBattery", "lithium", "plantRoom"],
       },
       {
         slug: "rack-lithium-batteries",
@@ -130,7 +130,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Hithium" },
         ],
         uses: ["Businesses", "Institutions", "Larger backup systems"],
-        image: "plantRoom",
+        image: "productRackBattery",
       },
       {
         slug: "residential-battery-modules",
@@ -170,7 +170,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Meco" },
         ],
         uses: ["Household backup", "Field and site work", "Small appliances and charging"],
-        image: "powerStation",
+        image: "productPortablePowerStation",
       },
       {
         slug: "all-in-one-solar-generators",
@@ -210,7 +210,7 @@ export const productCategories: ProductCategory[] = [
           { label: "System", value: "Designed with Helum" },
         ],
         uses: ["Homes", "Shops and offices", "Institutions"],
-        image: "lodgeArray",
+        image: "productRooftopPanels",
       },
       {
         slug: "ground-mount-solar-panels",
