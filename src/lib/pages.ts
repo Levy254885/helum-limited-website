@@ -471,7 +471,7 @@ export const pages: Record<string, PageSpec> = {
     description:
       "Helum identifies and brings to market technologies that make electricity more reliable, accessible and productive.",
     eyebrow: "Energy & power",
-    heroTitle: "Technologies that make electricity work harder",
+   heroTitle: "Engineering the Intelligence of Energy",
     heroSubtitle: "Advanced storage, intelligent energy systems and emerging solutions for Africa's energy needs.",
     image: "energyTech",
     layout: "dark-intro",
