@@ -242,8 +242,7 @@ export const images = {
     src: p("factory.jpg"),
     alt: "Technology partnerships and product supply",
   },
-} as const;
-  /* ---- New dedicated photos. Save the files in /public/photos ---- */
+  /* ---- New dedicated photos (added Oct 2026). Save files in /public/photos ---- */
   whyHero: {
     src: p("why-helum-hero.jpg"),
     alt: "Helum solar and storage installation in Kenya",
@@ -272,13 +271,13 @@ export const images = {
     src: p("process-2-assess.jpg"),
     alt: "Assessing energy demand and operating conditions on site",
   },
-  processDesign: {
-    src: p("process-3-design.jpg"),
-    alt: "Designing a technology and energy solution",
-  },
   processDeliver: {
     src: p("process-4-source-supply-install.jpg"),
     alt: "Sourcing, supplying, installing and commissioning a system",
+  },
+  processDesign: {
+    src: p("process-3-design.jpg"),
+    alt: "Designing a technology and energy solution",
   },
   processSupport: {
     src: p("process-5-maintenance-support.jpg"),
@@ -308,4 +307,6 @@ export const images = {
     src: p("product-rooftop-solar-panels.jpg"),
     alt: "Rooftop solar panels",
   },
+} as const;
+
 export type ImageKey = keyof typeof images;
