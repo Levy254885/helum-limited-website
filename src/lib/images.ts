@@ -243,5 +243,69 @@ export const images = {
     alt: "Technology partnerships and product supply",
   },
 } as const;
-
+  /* ---- New dedicated photos. Save the files in /public/photos ---- */
+  whyHero: {
+    src: p("why-helum-hero.jpg"),
+    alt: "Helum solar and storage installation in Kenya",
+  },
+  whyCommercial: {
+    src: p("why-commercial-purpose.jpg"),
+    alt: "Energy technology selected for real commercial use",
+  },
+  whyScale: {
+    src: p("why-built-for-scale.jpg"),
+    alt: "Solar infrastructure built to grow across African markets",
+  },
+  approachHero: {
+    src: p("approach-hero.jpg"),
+    alt: "Helum designing an energy solution around the customer's site",
+  },
+  processHero: {
+    src: p("process-hero.jpg"),
+    alt: "Helum team working through the process from challenge to solution",
+  },
+  processUnderstand: {
+    src: p("process-1-understand.jpg"),
+    alt: "Understanding the customer's needs, site and constraints",
+  },
+  processAssess: {
+    src: p("process-2-assess.jpg"),
+    alt: "Assessing energy demand and operating conditions on site",
+  },
+  processDesign: {
+    src: p("process-3-design.jpg"),
+    alt: "Designing a technology and energy solution",
+  },
+  processDeliver: {
+    src: p("process-4-source-supply-install.jpg"),
+    alt: "Sourcing, supplying, installing and commissioning a system",
+  },
+  processSupport: {
+    src: p("process-5-maintenance-support.jpg"),
+    alt: "Maintenance and ongoing support for an installed system",
+  },
+  productAllInOne: {
+    src: p("product-all-in-one-inverter-battery.jpg"),
+    alt: "All-in-one inverter and battery energy storage system",
+  },
+  productHybridInverter: {
+    src: p("product-hybrid-inverter.jpg"),
+    alt: "Hybrid solar inverter",
+  },
+  productPortablePowerStation: {
+    src: p("product-portable-power-station.jpg"),
+    alt: "Portable solar power station with AC outlets",
+  },
+  productWallBattery: {
+    src: p("product-wall-mounted-battery.jpg"),
+    alt: "Wall-mounted lithium battery",
+  },
+  productRackBattery: {
+    src: p("product-rack-lithium-battery.jpg"),
+    alt: "Rack-mounted lithium battery modules",
+  },
+  productRooftopPanels: {
+    src: p("product-rooftop-solar-panels.jpg"),
+    alt: "Rooftop solar panels",
+  },
 export type ImageKey = keyof typeof images;
