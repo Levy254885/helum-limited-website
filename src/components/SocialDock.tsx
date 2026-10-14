@@ -1,5 +1,5 @@
 /**
- * Floating social + WhatsApp bar, fixed at the bottom-left of every page.
+ * Floating social + WhatsApp bar, fixed at the bottom-right of every page.
  * To change a link or the WhatsApp number, edit the values below.
  */
 const WHATSAPP_NUMBER = "254710125685"; // international format, no + or spaces
@@ -63,7 +63,7 @@ export default function SocialDock() {
   return (
     <nav
       aria-label="Helum on social media"
-      className="fixed bottom-4 left-3 z-40 flex flex-col gap-2.5 sm:bottom-6 sm:left-5 print:hidden"
+      className="fixed bottom-4 right-3 z-40 flex flex-col gap-2.5 sm:bottom-6 sm:right-5 print:hidden"
     >
       {socials.map((s) => (
         <a
@@ -76,7 +76,7 @@ export default function SocialDock() {
           className="group relative flex h-10 w-10 items-center justify-center rounded-full shadow-lg ring-1 ring-white/30 transition duration-200 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-11 sm:w-11"
         >
           {s.icon}
-          <span className="pointer-events-none absolute left-full ml-3 hidden whitespace-nowrap rounded bg-[#0b1220] px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">
+          <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded bg-[#0b1220] px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">
             {s.name}
           </span>
         </a>
