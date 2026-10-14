@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat, Great_Vibes } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SocialDock from "@/components/SocialDock";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+        <SocialDock />
       </body>
     </html>
   );
