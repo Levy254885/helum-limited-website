@@ -35,7 +35,8 @@ export default function AboutPage() {
               variants={reduce ? undefined : heroTitle}
               className="text-4xl font-bold leading-[1.12] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.25rem]"
             >
-              Your trusted technology & energy partner in Africa
+              Engineering The.
+Intelligence of Energy.
             </motion.h1>
             <motion.p
               variants={reduce ? undefined : heroItem}
