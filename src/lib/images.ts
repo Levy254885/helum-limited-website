@@ -307,6 +307,27 @@ export const images = {
     src: p("product-rooftop-solar-panels.jpg"),
     alt: "Rooftop solar panels",
   },
+  /* ---- Services & product photos (Oct 2026). Save files in /public/photos ---- */
+  productThreePhase: {
+    src: p("product-three-phase-inverter.jpg"),
+    alt: "Three phase solar inverter",
+  },
+  productOffGridInverter: {
+    src: p("product-off-grid-inverter.jpg"),
+    alt: "Off-grid solar inverter",
+  },
+  productSolarGenerator: {
+    src: p("product-integrated-solar-generator.jpg"),
+    alt: "Integrated solar generator",
+  },
+  offGridHero: {
+    src: p("services-off-grid-energy.jpg"),
+    alt: "Off-grid solar energy system powering a remote site",
+  },
+  energyPowerHero: {
+    src: p("services-energy-power-technology.jpg"),
+    alt: "Advanced energy and power technology",
+  },
 } as const;
 
 export type ImageKey = keyof typeof images;
