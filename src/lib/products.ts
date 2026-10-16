@@ -74,7 +74,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Deye" },
         ],
         uses: ["Rural homes and enterprises", "Standalone solar and storage", "Decentralized power"],
-        image: "batteryHuayite",
+        image: "productOffGridInverter",
       },
       {
         slug: "three-phase-inverters",
@@ -89,7 +89,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Deye" },
         ],
         uses: ["Businesses and workshops", "Institutions", "Higher capacity systems"],
-        image: "energyTech",
+        image: "productThreePhase",
       },
     ],
   },
