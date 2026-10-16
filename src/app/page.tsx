@@ -18,7 +18,8 @@ export default function HomePage() {
           <Reveal className="lg:col-span-6">
             <p className="eyebrow mb-5">About Helum</p>
             <h2 className="mb-8 max-w-[14ch] font-display text-4xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl">
-              Technology. Energy. Possibility.
+              Engineering The.
+Intelligence of Energy.
             </h2>
             <p className="mb-5 text-lg leading-relaxed text-[var(--color-ink)]">{about.lead}</p>
             <p className="mb-5 leading-relaxed text-[var(--color-muted)]">{about.belief}</p>
