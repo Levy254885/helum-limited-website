@@ -125,7 +125,7 @@ Intelligence of Energy.
                         s.slug === "renewable-energy"
                           ? images.renewable.src
                           : s.slug === "energy-power-technology"
-                            ? images.energyTech.src
+                            ? images.energyPowerHero.src
                             : s.slug === "productive-use"
                               ? images.productive.src
                               : images.partnerships.src
