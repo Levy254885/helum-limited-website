@@ -2,7 +2,7 @@
 
 export const company = {
   name: "HELUM LIMITED",
-  tagline: "Technology. Energy. Possibility.",
+  tagline: "Engineering the Intelligence of Energy",
   secondary: "Engineering the Intelligence of Energy",
   phone: "0710125685",
   phoneHref: "tel:+254710125685",
