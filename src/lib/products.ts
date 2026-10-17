@@ -185,7 +185,7 @@ export const productCategories: ProductCategory[] = [
           { label: "Partners", value: "SVC · Meco" },
         ],
         uses: ["Off grid homes", "SMEs", "Rapid deployment"],
-        image: "powerStationSide",
+        image: "productSolarGenerator",
       },
     ],
   },
