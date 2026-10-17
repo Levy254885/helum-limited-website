@@ -31,7 +31,7 @@ export const pages: Record<string, PageSpec> = {
     description:
       "Helum Limited is a Kenyan technology and renewable-energy company focused on developing, sourcing and delivering solutions to real-world energy and productivity challenges.",
     eyebrow: "About Helum",
-    heroTitle: "Technology. Energy. Possibility.",
+    heroTitle: "Engineering the Intelligence of Energy.",
     heroSubtitle: "Building practical solutions for a sustainable Africa.",
     image: "about",
     layout: "editorial",
@@ -434,7 +434,7 @@ export const pages: Record<string, PageSpec> = {
     eyebrow: "Off-grid energy",
     heroTitle: "Energy beyond the grid",
     heroSubtitle: "Decentralized systems for sites where extension of the network is impractical or uneconomic.",
-    image: "offGrid",
+    image: "offGridHero",
     layout: "split-cards",
     intro: [
       "Off-grid and decentralized energy is part of Helum's renewable energy focus.",
@@ -473,7 +473,7 @@ export const pages: Record<string, PageSpec> = {
     eyebrow: "Energy & power",
    heroTitle: "Engineering the Intelligence of Energy",
     heroSubtitle: "Advanced storage, intelligent energy systems and emerging solutions for Africa's energy needs.",
-    image: "energyTech",
+    image: "energyPowerHero",
     layout: "dark-intro",
     intro: [
       "We identify and bring to market technologies that make electricity more reliable, accessible and productive.",
