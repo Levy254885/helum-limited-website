@@ -328,6 +328,10 @@ export const images = {
     src: p("services-energy-power-technology.jpg"),
     alt: "Advanced energy and power technology",
   },
+  marketAccess: {
+    src: p("technology-market-access.jpg"),
+    alt: "Bringing quality technology into African markets",
+  },
 } as const;
 
 export type ImageKey = keyof typeof images;
