@@ -159,7 +159,7 @@ export default function FlexiblePage({ spec }: { spec: PageSpec }) {
       )}
 
       {spec.layout === "checklist" && (
-        <Split image={heroImg} reverse>
+        <Split image={spec.contentImage ? img(spec.contentImage) : heroImg} reverse>
           <h2 className="mb-5 text-3xl font-extrabold text-[#1a1f2e]">{spec.sections[0]?.heading ?? "What this covers"}</h2>
           {spec.intro.map((p) => (
             <p key={p.slice(0, 20)} className="mb-4 leading-relaxed text-[#5a6478]">
