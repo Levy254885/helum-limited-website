@@ -8,6 +8,7 @@ export type PageSpec = {
   heroTitle: string;
   heroSubtitle: string;
   image: ImageKey;
+  contentImage?: ImageKey;
   layout: "editorial" | "split-cards" | "timeline" | "mosaic" | "dark-intro" | "checklist" | "faq" | "form";
   intro: string[];
   sections: { heading: string; body: string; points?: string[]; href?: string }[];
@@ -900,6 +901,7 @@ export const pages: Record<string, PageSpec> = {
     heroTitle: "A bridge into African markets",
     heroSubtitle: "Kenyan market intelligence plus international technology relationships.",
     image: "nairobi",
+    contentImage: "marketAccess",
     layout: "checklist",
     intro: [
       "Helum's strategy is to combine Kenyan market intelligence with international technology and manufacturing relationships, creating a bridge between innovative technology providers and African markets.",
